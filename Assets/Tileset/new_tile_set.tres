@@ -1,29 +1,32 @@
-[gd_resource type="TileSet" load_steps=49 format=3 uid="uid://chigbd0nqnx2p"]
+[gd_resource type="TileSet" load_steps=55 format=3 uid="uid://chigbd0nqnx2p"]
 
-[ext_resource type="Texture2D" uid="uid://m0rhhrig7ief" path="res://Assets/shelve1.png" id="1_ua1cs"]
-[ext_resource type="Texture2D" uid="uid://bs4y8b5axrbps" path="res://Assets/clock.png" id="2_smjnx"]
-[ext_resource type="Texture2D" uid="uid://dxhi5vy1la530" path="res://Assets/wall.png" id="5_ppsx2"]
-[ext_resource type="Texture2D" uid="uid://drpjkcs3v14tp" path="res://Assets/bed3.png" id="6_7o21h"]
-[ext_resource type="Texture2D" uid="uid://b8v55tcrhqgry" path="res://Assets/floor1.png" id="6_pijqt"]
-[ext_resource type="Texture2D" uid="uid://dj0423mtlfgf4" path="res://Assets/lamp1.png" id="6_y48it"]
-[ext_resource type="Texture2D" uid="uid://lp233la8jqcn" path="res://Assets/carpet2.png" id="7_hsiir"]
-[ext_resource type="Texture2D" uid="uid://dhnckuy7v6pf8" path="res://Assets/computer.png" id="8_4b0fr"]
-[ext_resource type="Texture2D" uid="uid://nuklwfb5k2bn" path="res://Assets/pot.png" id="8_y6pd4"]
-[ext_resource type="Texture2D" uid="uid://cy3oqtsrlrmt" path="res://Assets/wall1.png" id="8_ywoxc"]
-[ext_resource type="Texture2D" uid="uid://cmyrd2np00fw6" path="res://Assets/window2.png" id="9_bh4re"]
-[ext_resource type="Texture2D" uid="uid://cmquahdcwsn6g" path="res://Assets/christmas-tree.png" id="10_ncj1r"]
-[ext_resource type="Texture2D" uid="uid://dwwjx2c32h8ru" path="res://Assets/wall4.png" id="11_bej1s"]
-[ext_resource type="Texture2D" uid="uid://bbyxmlayl7kkw" path="res://Assets/shelve4.png" id="11_g4bsw"]
-[ext_resource type="Texture2D" uid="uid://cc4i3mwhbilbi" path="res://Assets/poster1.png" id="12_hjukr"]
-[ext_resource type="Texture2D" uid="uid://cl1nnhoqy2aa2" path="res://Assets/wall5.png" id="12_ledrk"]
-[ext_resource type="Texture2D" uid="uid://u2qpsacv6co4" path="res://Assets/poster2.png" id="13_fo10h"]
-[ext_resource type="Texture2D" uid="uid://v0wlltq2hcnx" path="res://Assets/desk.png" id="14_cfawd"]
-[ext_resource type="Texture2D" uid="uid://b1bxrh0huyt31" path="res://Assets/bean2.png" id="14_xbrso"]
-[ext_resource type="Texture2D" uid="uid://cfhrweawcb26i" path="res://Assets/tv.png" id="15_5d6mu"]
-[ext_resource type="Texture2D" uid="uid://bvlp26erwihbr" path="res://Assets/poster.png" id="15_u1yxp"]
-[ext_resource type="Texture2D" uid="uid://d8tsx42ageq5" path="res://Assets/poster3.png" id="17_pr137"]
-[ext_resource type="Texture2D" uid="uid://byupwm2th0p61" path="res://Assets/wall3.png" id="18_agega"]
-[ext_resource type="Texture2D" uid="uid://dyqwqoxvqdvw3" path="res://Assets/wall2.png" id="19_x8sux"]
+[ext_resource type="Texture2D" uid="uid://bjomgisgp3bcv" path="res://Assets/shelve1.png" id="1_ua1cs"]
+[ext_resource type="Texture2D" uid="uid://bg0aipcshgex4" path="res://Assets/clock.png" id="2_smjnx"]
+[ext_resource type="Texture2D" uid="uid://b7e8n87kije8t" path="res://Assets/wall.png" id="5_ppsx2"]
+[ext_resource type="Texture2D" uid="uid://wo88bhck2onl" path="res://Assets/bed3.png" id="6_7o21h"]
+[ext_resource type="Texture2D" uid="uid://dw3ho8fy0awg3" path="res://Assets/floor1.png" id="6_pijqt"]
+[ext_resource type="Texture2D" uid="uid://cf0ec0y0m3r0l" path="res://Assets/lamp1.png" id="6_y48it"]
+[ext_resource type="Texture2D" uid="uid://b2cghnv61c042" path="res://Assets/carpet2.png" id="7_hsiir"]
+[ext_resource type="Texture2D" uid="uid://cqfopa0ho0uf" path="res://Assets/computer.png" id="8_4b0fr"]
+[ext_resource type="Texture2D" uid="uid://cyl6t20cb4c54" path="res://Assets/pot.png" id="8_y6pd4"]
+[ext_resource type="Texture2D" uid="uid://hjenhvdrc1ys" path="res://Assets/wall1.png" id="8_ywoxc"]
+[ext_resource type="Texture2D" uid="uid://r5fhtqyqaqdr" path="res://Assets/window2.png" id="9_bh4re"]
+[ext_resource type="Texture2D" uid="uid://dtuaaafs1w6rn" path="res://Assets/christmas-tree.png" id="10_ncj1r"]
+[ext_resource type="Texture2D" uid="uid://be2jvl2wo86m4" path="res://Assets/wall4.png" id="11_bej1s"]
+[ext_resource type="Texture2D" uid="uid://c6k5j3iuqb3k0" path="res://Assets/shelve4.png" id="11_g4bsw"]
+[ext_resource type="Texture2D" uid="uid://drkchfcadfms1" path="res://Assets/poster1.png" id="12_hjukr"]
+[ext_resource type="Texture2D" uid="uid://caoiioockkofs" path="res://Assets/wall5.png" id="12_ledrk"]
+[ext_resource type="Texture2D" uid="uid://bnt1bfvrly73m" path="res://Assets/poster2.png" id="13_fo10h"]
+[ext_resource type="Texture2D" uid="uid://bjfbt1u7slebt" path="res://Assets/desk.png" id="14_cfawd"]
+[ext_resource type="Texture2D" uid="uid://4np8sykhwqqt" path="res://Assets/bean2.png" id="14_xbrso"]
+[ext_resource type="Texture2D" uid="uid://b58pkth6dm7hu" path="res://Assets/tv.png" id="15_5d6mu"]
+[ext_resource type="Texture2D" uid="uid://khq24rc2v3l" path="res://Assets/poster.png" id="15_u1yxp"]
+[ext_resource type="Texture2D" uid="uid://do6ogkc35djun" path="res://Assets/poster3.png" id="17_pr137"]
+[ext_resource type="Texture2D" uid="uid://naxc7kn11ypl" path="res://Assets/wall3.png" id="18_agega"]
+[ext_resource type="Texture2D" uid="uid://b4iyj7g2i7jct" path="res://Assets/wall6.png" id="18_i4r83"]
+[ext_resource type="Texture2D" uid="uid://pmquf8mec0hd" path="res://Assets/wall7.png" id="19_61o0m"]
+[ext_resource type="Texture2D" uid="uid://b1xx1mcu0f181" path="res://Assets/wall2.png" id="19_x8sux"]
+[ext_resource type="Texture2D" uid="uid://q0qoe7gpdg0r" path="res://Assets/wall8.png" id="20_q60ev"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l5yts"]
 texture = ExtResource("12_hjukr")
@@ -104,24 +107,6 @@ texture = ExtResource("10_ncj1r")
 1:2/0 = 0
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -16, 2, -33, 17, -13, 22, 8, 25, 36, -5, 43, -22, 35, -22, 11)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w0xfs"]
-texture = ExtResource("11_bej1s")
-texture_region_size = Vector2i(16, 14)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-0:1/0 = 0
-4:1/0 = 0
-0:2/0 = 0
-4:2/0 = 0
-0:3/0 = 0
-4:3/0 = 0
-1:1/size_in_atlas = Vector2i(3, 3)
-1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-23.3345, -19.0919, 22.6274, -19.799, 24.7487, 20.5061, -23.3345, 20.5061)
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wwox1"]
 texture = ExtResource("12_ledrk")
 1:4/0 = 0
@@ -144,6 +129,10 @@ texture = ExtResource("14_cfawd")
 2:3/size_in_atlas = Vector2i(4, 3)
 2:3/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lqtar"]
+texture = ExtResource("11_bej1s")
+1:1/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evsuf"]
 texture = ExtResource("14_xbrso")
 1:1/size_in_atlas = Vector2i(4, 4)
@@ -160,6 +149,20 @@ texture = ExtResource("11_g4bsw")
 0:1/size_in_atlas = Vector2i(6, 4)
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-43.1335, -0.707108, 46.6691, -3.53554, 47.3762, 16.2635, -43.8406, 16.2635)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p3b15"]
+texture = ExtResource("18_i4r83")
+texture_region_size = Vector2i(16, 18)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_su1n2"]
+texture = ExtResource("19_61o0m")
+margins = Vector2i(1, 2)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_effc1"]
+texture = ExtResource("20_q60ev")
+0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ie651"]
 texture = ExtResource("6_pijqt")
@@ -217,6 +220,9 @@ sources/6 = SubResource("TileSetAtlasSource_y8r3x")
 sources/7 = SubResource("TileSetAtlasSource_etvq5")
 sources/8 = SubResource("TileSetAtlasSource_w4riq")
 sources/12 = SubResource("TileSetAtlasSource_4e5rt")
-sources/18 = SubResource("TileSetAtlasSource_w0xfs")
 sources/19 = SubResource("TileSetAtlasSource_wwox1")
 sources/20 = SubResource("TileSetAtlasSource_tohhh")
+sources/21 = SubResource("TileSetAtlasSource_lqtar")
+sources/25 = SubResource("TileSetAtlasSource_p3b15")
+sources/26 = SubResource("TileSetAtlasSource_su1n2")
+sources/27 = SubResource("TileSetAtlasSource_effc1")
