@@ -150,22 +150,22 @@ texture = ExtResource("11_g4bsw")
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-43.1335, -0.707108, 46.6691, -3.53554, 47.3762, 16.2635, -43.8406, 16.2635)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p3b15"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oc558"]
 texture = ExtResource("18_i4r83")
-texture_region_size = Vector2i(16, 18)
+use_texture_padding = false
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_su1n2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tnvy7"]
 texture = ExtResource("19_61o0m")
-margins = Vector2i(1, 2)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_effc1"]
-texture = ExtResource("20_q60ev")
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ie651"]
 texture = ExtResource("6_pijqt")
+use_texture_padding = false
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fx7wd"]
+texture = ExtResource("20_q60ev")
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e4s27"]
@@ -223,6 +223,6 @@ sources/12 = SubResource("TileSetAtlasSource_4e5rt")
 sources/19 = SubResource("TileSetAtlasSource_wwox1")
 sources/20 = SubResource("TileSetAtlasSource_tohhh")
 sources/21 = SubResource("TileSetAtlasSource_lqtar")
-sources/25 = SubResource("TileSetAtlasSource_p3b15")
-sources/26 = SubResource("TileSetAtlasSource_su1n2")
-sources/27 = SubResource("TileSetAtlasSource_effc1")
+sources/28 = SubResource("TileSetAtlasSource_oc558")
+sources/29 = SubResource("TileSetAtlasSource_tnvy7")
+sources/30 = SubResource("TileSetAtlasSource_fx7wd")
