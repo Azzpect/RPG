@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=33 format=3 uid="uid://bjthwbx30yyli"]
+[gd_resource type="TileSet" load_steps=35 format=3 uid="uid://bjthwbx30yyli"]
 
 [ext_resource type="Texture2D" uid="uid://dw3ho8fy0awg3" path="res://Assets/Room/floor1.png" id="1_sw6hb"]
 [ext_resource type="Texture2D" uid="uid://b4iyj7g2i7jct" path="res://Assets/Room/wall6.png" id="2_4v683"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://4np8sykhwqqt" path="res://Assets/Room/bean2.png" id="6_7xytt"]
 [ext_resource type="Texture2D" uid="uid://cyl6t20cb4c54" path="res://Assets/Room/pot.png" id="7_n14aw"]
 [ext_resource type="Texture2D" uid="uid://bg0aipcshgex4" path="res://Assets/Room/clock.png" id="8_wulw1"]
+[ext_resource type="Texture2D" uid="uid://dqmvra26h3gb3" path="res://Assets/Room/pot1.png" id="9_a5xgt"]
 [ext_resource type="Texture2D" uid="uid://wo88bhck2onl" path="res://Assets/Room/bed3.png" id="10_6u61n"]
 [ext_resource type="Texture2D" uid="uid://cf0ec0y0m3r0l" path="res://Assets/Room/lamp1.png" id="11_j32of"]
 [ext_resource type="Texture2D" uid="uid://dtuaaafs1w6rn" path="res://Assets/Room/christmas-tree.png" id="12_cewia"]
@@ -57,6 +58,15 @@ texture = ExtResource("7_n14aw")
 texture = ExtResource("8_wulw1")
 2:2/size_in_atlas = Vector2i(2, 2)
 2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1td7e"]
+texture = ExtResource("9_a5xgt")
+0:1/size_in_atlas = Vector2i(3, 4)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.11843, 4.96094, 5.05984, 4.66299, 4.7329, 22.9963, -3.842, 22.9963)
+6:2/size_in_atlas = Vector2i(2, 3)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1.96863, 1.02369, 5.96308, 1.33292, 6.10339, 10.032, -2.17477, 9.8917)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_03ybu"]
 texture = ExtResource("3_1bx77")
@@ -119,3 +129,4 @@ sources/12 = SubResource("TileSetAtlasSource_dtfke")
 sources/13 = SubResource("TileSetAtlasSource_hyicj")
 sources/14 = SubResource("TileSetAtlasSource_ohwft")
 sources/15 = SubResource("TileSetAtlasSource_mdwy7")
+sources/17 = SubResource("TileSetAtlasSource_1td7e")
