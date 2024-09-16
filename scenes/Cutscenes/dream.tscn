@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://c6nqtwjmhxyix"]
 
-[ext_resource type="Texture2D" uid="uid://ccb83hxyn1vw3" path="res://Assets/Castle/castle.png" id="1_yu1e5"]
-[ext_resource type="Texture2D" uid="uid://clkragiltgnsx" path="res://Assets/Castle/castle_pillar.png" id="2_hq42i"]
-[ext_resource type="Texture2D" uid="uid://dftjgov215lqo" path="res://Assets/Castle/knight.png" id="2_yuajw"]
-[ext_resource type="Texture2D" uid="uid://bvfqcy3dpcx1i" path="res://Assets/Castle/demon.png" id="4_nddll"]
+[ext_resource type="Texture2D" uid="uid://ccb83hxyn1vw3" path="res://Assets/Castle/castle.png" id="1_nowtn"]
+[ext_resource type="Texture2D" uid="uid://clkragiltgnsx" path="res://Assets/Castle/castle_pillar.png" id="2_mga16"]
+[ext_resource type="Texture2D" uid="uid://dftjgov215lqo" path="res://Assets/Castle/knight.png" id="3_mmlit"]
+[ext_resource type="Texture2D" uid="uid://bvfqcy3dpcx1i" path="res://Assets/Castle/demon.png" id="4_3q7gk"]
 
 [sub_resource type="Gradient" id="Gradient_wff68"]
 offsets = PackedFloat32Array(0.0608696, 0.886957)
@@ -19,7 +19,7 @@ fill_from = Vector2(0.478528, 0.457055)
 [node name="Castle" type="Sprite2D" parent="."]
 position = Vector2(712.5, 397.5)
 scale = Vector2(0.740104, 0.74537)
-texture = ExtResource("1_yu1e5")
+texture = ExtResource("1_nowtn")
 
 [node name="pillar" type="Sprite2D" parent="."]
 
@@ -29,31 +29,31 @@ texture = ExtResource("1_yu1e5")
 z_index = 2
 position = Vector2(80, 399)
 scale = Vector2(0.64537, 0.596875)
-texture = ExtResource("2_hq42i")
+texture = ExtResource("2_mga16")
 
 [node name="CastlePillar2" type="Sprite2D" parent="pillars"]
 z_index = 2
 position = Vector2(491, 162)
 scale = Vector2(0.64537, 0.596875)
-texture = ExtResource("2_hq42i")
+texture = ExtResource("2_mga16")
 
 [node name="CastlePillar3" type="Sprite2D" parent="pillars"]
 z_index = 2
 position = Vector2(906, -93)
 scale = Vector2(0.64537, 0.596875)
-texture = ExtResource("2_hq42i")
+texture = ExtResource("2_mga16")
 
 [node name="CastlePillar4" type="Sprite2D" parent="pillars"]
 z_index = 2
 position = Vector2(787, 377)
 scale = Vector2(0.64537, 0.596875)
-texture = ExtResource("2_hq42i")
+texture = ExtResource("2_mga16")
 
 [node name="CastlePillar5" type="Sprite2D" parent="pillars"]
 z_index = 2
 position = Vector2(1157, 98)
 scale = Vector2(0.64537, 0.596875)
-texture = ExtResource("2_hq42i")
+texture = ExtResource("2_mga16")
 
 [node name="candle_lights" type="Node" parent="."]
 
@@ -108,7 +108,7 @@ texture = SubResource("GradientTexture2D_gj4cj")
 position = Vector2(81, 371)
 scale = Vector2(1.625, 1.44531)
 color = Color(1, 1, 0.607843, 1)
-energy = 4.0
+energy = 2.55
 range_z_min = 2
 texture = SubResource("GradientTexture2D_gj4cj")
 
@@ -116,7 +116,7 @@ texture = SubResource("GradientTexture2D_gj4cj")
 position = Vector2(490, 135)
 scale = Vector2(1.625, 1.44531)
 color = Color(1, 1, 0.607843, 1)
-energy = 4.0
+energy = 2.55
 range_z_min = 2
 texture = SubResource("GradientTexture2D_gj4cj")
 
@@ -124,7 +124,7 @@ texture = SubResource("GradientTexture2D_gj4cj")
 position = Vector2(785, 353)
 scale = Vector2(1.625, 1.44531)
 color = Color(1, 1, 0.607843, 1)
-energy = 4.0
+energy = 2.55
 range_z_min = 2
 texture = SubResource("GradientTexture2D_gj4cj")
 
@@ -132,7 +132,7 @@ texture = SubResource("GradientTexture2D_gj4cj")
 position = Vector2(1159, 75)
 scale = Vector2(1.625, 1.44531)
 color = Color(1, 1, 0.607843, 1)
-energy = 4.0
+energy = 2.55
 range_z_min = 2
 texture = SubResource("GradientTexture2D_gj4cj")
 
@@ -142,8 +142,8 @@ blend_mode = 1
 
 [node name="knight" type="Sprite2D" parent="."]
 position = Vector2(666, 502)
-texture = ExtResource("2_yuajw")
+texture = ExtResource("3_mmlit")
 
 [node name="demon" type="Sprite2D" parent="."]
 position = Vector2(1058, 209)
-texture = ExtResource("4_nddll")
+texture = ExtResource("4_3q7gk")
