@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=4 uid="uid://dmsujtam55a8o"]
 
-[ext_resource type="TileSet" uid="uid://bjthwbx30yyli" path="res://Assets/Tileset/room.tres" id="1_gi2di"]
-[ext_resource type="PackedScene" uid="uid://co2475gp7n187" path="res://Scenes/teleporter.tscn" id="3_hwgdx"]
+[ext_resource type="TileSet" uid="uid://6u3oevoamtri" path="res://Assets/Tileset/room.tres" id="1_gi2di"]
+[ext_resource type="PackedScene" uid="uid://co2475gp7n187" path="res://scenes/teleporter.tscn" id="3_hwgdx"]
 [ext_resource type="Texture2D" uid="uid://b2cghnv61c042" path="res://Assets/Room/carpet2.png" id="4_pveny"]
 
 [node name="player_room" type="Node2D"]
