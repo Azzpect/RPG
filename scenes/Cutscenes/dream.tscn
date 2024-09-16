@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6nqtwjmhxyix"]
+[gd_scene load_steps=12 format=3 uid="uid://c6nqtwjmhxyix"]
 
 [ext_resource type="Texture2D" uid="uid://ccb83hxyn1vw3" path="res://Assets/Castle/castle.png" id="1_nowtn"]
 [ext_resource type="Texture2D" uid="uid://clkragiltgnsx" path="res://Assets/Castle/castle_pillar.png" id="2_mga16"]
 [ext_resource type="Texture2D" uid="uid://dftjgov215lqo" path="res://Assets/Castle/knight.png" id="3_mmlit"]
 [ext_resource type="Texture2D" uid="uid://bvfqcy3dpcx1i" path="res://Assets/Castle/demon.png" id="4_3q7gk"]
+[ext_resource type="PackedScene" uid="uid://b0rtetd3uhgl0" path="res://scenes/dialogue_box.tscn" id="5_0e8at"]
+[ext_resource type="Script" path="res://scripts/dialogue_manager.gd" id="6_x4kqi"]
 
 [sub_resource type="Gradient" id="Gradient_wff68"]
 offsets = PackedFloat32Array(0.0608696, 0.886957)
@@ -13,6 +15,43 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_wff68")
 fill = 1
 fill_from = Vector2(0.478528, 0.457055)
+
+[sub_resource type="Animation" id="Animation_gi5j5"]
+resource_name = "appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(181, 681), Vector2(181, 515)]
+}
+
+[sub_resource type="Animation" id="Animation_utxi8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(181, 681)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b3wsv"]
+_data = {
+"RESET": SubResource("Animation_utxi8"),
+"appear": SubResource("Animation_gi5j5")
+}
 
 [node name="Castle" type="Node2D"]
 
@@ -147,3 +186,20 @@ texture = ExtResource("3_mmlit")
 [node name="demon" type="Sprite2D" parent="."]
 position = Vector2(1058, 209)
 texture = ExtResource("4_3q7gk")
+
+[node name="dialogue_box" parent="." instance=ExtResource("5_0e8at")]
+unique_name_in_owner = true
+z_index = 10
+offset_left = 181.0
+offset_top = 681.0
+offset_right = 937.0
+offset_bottom = 736.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="dialogue_box"]
+libraries = {
+"": SubResource("AnimationLibrary_b3wsv")
+}
+
+[node name="dialogueManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_x4kqi")
