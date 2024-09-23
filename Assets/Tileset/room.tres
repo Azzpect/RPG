@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cyl6t20cb4c54" path="res://Assets/Room/pot.png" id="7_n14aw"]
 [ext_resource type="Texture2D" uid="uid://bg0aipcshgex4" path="res://Assets/Room/clock.png" id="8_wulw1"]
 [ext_resource type="Texture2D" uid="uid://dqmvra26h3gb3" path="res://Assets/Room/pot1.png" id="9_a5xgt"]
-[ext_resource type="Texture2D" uid="uid://wo88bhck2onl" path="res://Assets/Room/bed3.png" id="10_6u61n"]
+[ext_resource type="Texture2D" uid="uid://b01w7hi5u6goq" path="res://Assets/Room/bed3.png" id="10_6u61n"]
 [ext_resource type="Texture2D" uid="uid://cf0ec0y0m3r0l" path="res://Assets/Room/lamp1.png" id="11_j32of"]
 [ext_resource type="Texture2D" uid="uid://dtuaaafs1w6rn" path="res://Assets/Room/christmas-tree.png" id="12_cewia"]
 [ext_resource type="Texture2D" uid="uid://r5fhtqyqaqdr" path="res://Assets/Room/window2.png" id="13_jviwt"]
