@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ba3pnhp7pb0ej" path="res://Assets/Room/bedsheet.png" id="4_mclpo"]
 [ext_resource type="Texture2D" uid="uid://b2cghnv61c042" path="res://Assets/Room/carpet2.png" id="4_pveny"]
 
-[node name="player_room" type="Node2D"]
+[node name="playerRoom" type="Node2D"]
 
 [node name="wall" type="TileMapLayer" parent="."]
 position = Vector2(140, 74)

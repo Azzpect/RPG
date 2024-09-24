@@ -5,7 +5,7 @@ extends Node
 
 @onready var dialogueManager: Node = %dialogueManager
 @onready var timer: Timer = $Timer
-var nextScene: String = "res://scenes/Cutscenes/dream_2.tscn"
+var nextScene: String = "res://scenes/utility/playerRoom.tscn"
 
 func _ready():
 	dialogueManager.emit_signal("_readDialogueFile")

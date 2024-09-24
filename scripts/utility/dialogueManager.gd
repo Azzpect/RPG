@@ -24,11 +24,11 @@ var isSpaceClicked: bool = false
 
 
 func _ready():
+	connect("_readDialogueFile", readDialogueFile)
 	connect("_initializeDialogueSystem", initDialougeSystem)
 	connect("_lineCompleted", showNextLine)
 	connect("_isSpaceClicked", spaceClicked)
 	connect("_dialougeCompleted", dialogueCompleted)
-	connect("_readDialogueFile", readDialogueFile)
 
 
 func spaceClicked():
