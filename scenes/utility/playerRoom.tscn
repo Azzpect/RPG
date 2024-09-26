@@ -31,7 +31,6 @@ scale = Vector2(0.729999, 0.74)
 texture = ExtResource("4_pveny")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-visible = false
 z_index = -1
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-12, -1, 1292, 0, 1292, 733, -16, 735)
