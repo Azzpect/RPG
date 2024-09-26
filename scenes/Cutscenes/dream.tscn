@@ -1,0 +1,156 @@
+[gd_scene load_steps=9 format=3 uid="uid://c6nqtwjmhxyix"]
+
+[ext_resource type="Texture2D" uid="uid://ccb83hxyn1vw3" path="res://Assets/Castle/castle.png" id="1_nowtn"]
+[ext_resource type="Texture2D" uid="uid://clkragiltgnsx" path="res://Assets/Castle/castle_pillar.png" id="2_mga16"]
+[ext_resource type="Texture2D" uid="uid://dftjgov215lqo" path="res://Assets/Castle/knight.png" id="3_mmlit"]
+[ext_resource type="Texture2D" uid="uid://bvfqcy3dpcx1i" path="res://Assets/Castle/demon.png" id="4_3q7gk"]
+[ext_resource type="PackedScene" uid="uid://c2q4v0ek7amap" path="res://scenes/utility/dialogue_box.tscn" id="5_0e8at"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="7_kk77p"]
+
+[sub_resource type="Gradient" id="Gradient_wff68"]
+offsets = PackedFloat32Array(0.0608696, 0.886957)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gj4cj"]
+gradient = SubResource("Gradient_wff68")
+fill = 1
+fill_from = Vector2(0.478528, 0.457055)
+
+[node name="Castle" type="Node2D"]
+
+[node name="Castle" type="Sprite2D" parent="."]
+position = Vector2(641.5, 360.5)
+scale = Vector2(0.666146, 0.665741)
+texture = ExtResource("1_nowtn")
+
+[node name="pillar" type="Sprite2D" parent="."]
+
+[node name="pillars" type="Node" parent="."]
+
+[node name="CastlePillar" type="Sprite2D" parent="pillars"]
+z_index = 2
+position = Vector2(74, 343)
+scale = Vector2(0.623611, 0.571875)
+texture = ExtResource("2_mga16")
+
+[node name="CastlePillar4" type="Sprite2D" parent="pillars"]
+z_index = 2
+position = Vector2(445, 413.375)
+scale = Vector2(0.623611, 0.706641)
+texture = ExtResource("2_mga16")
+
+[node name="CastlePillar5" type="Sprite2D" parent="pillars"]
+z_index = 2
+position = Vector2(1002, 87)
+scale = Vector2(0.623611, 0.597396)
+texture = ExtResource("2_mga16")
+
+[node name="CastlePillar2" type="Sprite2D" parent="pillars"]
+position = Vector2(694, -14)
+scale = Vector2(0.623611, 0.535417)
+texture = ExtResource("2_mga16")
+
+[node name="CastlePillar3" type="Sprite2D" parent="pillars"]
+z_index = 2
+position = Vector2(1125, -280)
+scale = Vector2(0.623611, 0.535417)
+texture = ExtResource("2_mga16")
+
+[node name="candle_lights" type="Node" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="candle_lights"]
+position = Vector2(137, 125)
+energy = 1.2
+texture = SubResource("GradientTexture2D_gj4cj")
+
+[node name="PointLight2D2" type="PointLight2D" parent="candle_lights"]
+position = Vector2(192, 107)
+energy = 1.2
+texture = SubResource("GradientTexture2D_gj4cj")
+
+[node name="PointLight2D3" type="PointLight2D" parent="candle_lights"]
+position = Vector2(235, 117)
+energy = 1.2
+texture = SubResource("GradientTexture2D_gj4cj")
+
+[node name="PointLight2D4" type="PointLight2D" parent="candle_lights"]
+position = Vector2(520, 76)
+energy = 0.6
+texture = SubResource("GradientTexture2D_gj4cj")
+
+[node name="PointLight2D5" type="PointLight2D" parent="candle_lights"]
+position = Vector2(552, 69)
+energy = 0.6
+texture = SubResource("GradientTexture2D_gj4cj")
+
+[node name="PointLight2D6" type="PointLight2D" parent="candle_lights"]
+position = Vector2(576, 73)
+energy = 0.6
+texture = SubResource("GradientTexture2D_gj4cj")
+
+[node name="PointLight2D7" type="PointLight2D" parent="candle_lights"]
+position = Vector2(880, 16)
+energy = 0.3
+texture = SubResource("GradientTexture2D_gj4cj")
+
+[node name="PointLight2D8" type="PointLight2D" parent="candle_lights"]
+position = Vector2(868, 15)
+energy = 0.3
+texture = SubResource("GradientTexture2D_gj4cj")
+
+[node name="PointLight2D9" type="PointLight2D" parent="candle_lights"]
+position = Vector2(851, 19)
+energy = 0.3
+texture = SubResource("GradientTexture2D_gj4cj")
+
+[node name="fire_lights" type="Node" parent="."]
+
+[node name="PointLight2D10" type="PointLight2D" parent="fire_lights"]
+position = Vector2(74, 319)
+scale = Vector2(1.625, 1.44531)
+color = Color(1, 1, 0.607843, 1)
+energy = 2.55
+range_z_min = 2
+texture = SubResource("GradientTexture2D_gj4cj")
+
+[node name="PointLight2D11" type="PointLight2D" parent="fire_lights"]
+position = Vector2(446, 384)
+scale = Vector2(1.625, 1.44531)
+color = Color(1, 1, 0.607843, 1)
+energy = 2.55
+range_z_min = 2
+texture = SubResource("GradientTexture2D_gj4cj")
+
+[node name="PointLight2D13" type="PointLight2D" parent="fire_lights"]
+position = Vector2(1002, 58)
+scale = Vector2(1.625, 1.44531)
+color = Color(1, 1, 0.607843, 1)
+energy = 2.55
+range_z_min = 2
+texture = SubResource("GradientTexture2D_gj4cj")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.3
+blend_mode = 1
+
+[node name="knight" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(557, 531)
+texture = ExtResource("3_mmlit")
+
+[node name="demon" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(802, 301)
+texture = ExtResource("4_3q7gk")
+
+[node name="dialogue_box" parent="." instance=ExtResource("5_0e8at")]
+unique_name_in_owner = true
+
+[node name="game_manager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_kk77p")
+
+[node name="Timer" type="Timer" parent="game_manager"]
+one_shot = true
+
+[connection signal="timeout" from="game_manager/Timer" to="game_manager" method="_on_timer_timeout"]
