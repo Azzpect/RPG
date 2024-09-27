@@ -20,7 +20,8 @@ func _ready():
 	transitioner.emit_signal("_endScene")
 
 func _process(delta: float) -> void:
-	if dialogueManager.i > 4 && is_instance_valid(mother):
+	if dialogueManager.i == 5 && is_instance_valid(mother):
+		transitioner.emit_signal("_blink")
 		mother.queue_free()
 
 func sceneEnded():

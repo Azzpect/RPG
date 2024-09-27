@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://crajuy8r0k17p"]
+[gd_scene load_steps=7 format=3 uid="uid://crajuy8r0k17p"]
 
 [ext_resource type="Script" path="res://scripts/utility/transtioner.gd" id="1_motu3"]
 
@@ -49,9 +49,26 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_ybhqy"]
+resource_name = "blink"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Polygon2D:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_egl23"]
 _data = {
 "RESET": SubResource("Animation_4ehl3"),
+"blink": SubResource("Animation_ybhqy"),
 "scene_end": SubResource("Animation_p58xc"),
 "scene_start": SubResource("Animation_53sov")
 }

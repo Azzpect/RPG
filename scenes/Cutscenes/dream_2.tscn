@@ -33,7 +33,7 @@ texture = ExtResource("6_b8bta")
 
 [node name="mother" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(472, 407)
+position = Vector2(462, 432)
 texture = ExtResource("6_wvjku")
 flip_h = true
 
