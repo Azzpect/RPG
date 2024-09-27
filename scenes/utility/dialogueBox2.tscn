@@ -123,14 +123,25 @@ scale = Vector2(0.93, 0.93)
 
 [node name="dialogue_box_sprite" type="Sprite2D" parent="."]
 z_index = 10
-position = Vector2(626, 379.75)
-scale = Vector2(1.216, 0.614428)
+position = Vector2(626, 304.457)
+scale = Vector2(1.216, 1.11638)
 texture = ExtResource("2_gqfwn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_gmvy4")
 }
+
+[node name="entityName" type="Label" parent="."]
+z_index = 10
+offset_left = 367.0
+offset_top = 286.0
+offset_right = 469.0
+offset_bottom = 319.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_left = 365.0
@@ -142,7 +153,7 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="dialogue" type="Label" parent="MarginContainer"]
 z_index = 10
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)

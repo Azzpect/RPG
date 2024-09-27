@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c2q4v0ek7amap"]
 
 [ext_resource type="Script" path="res://scripts/utility/dialogue.gd" id="1_ntx7d"]
-[ext_resource type="Texture2D" uid="uid://bxluvwtp7p4xf" path="res://Assets/utility/dialogue_box.png" id="2_8e00r"]
+[ext_resource type="Texture2D" uid="uid://vb8qw57kpviv" path="res://assets/utility/dialogue_box1.png" id="2_25pkf"]
 
 [sub_resource type="Animation" id="Animation_ihxs4"]
 length = 0.001
@@ -20,26 +20,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/Polygon2D:position")
+tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(490, 49.25)]
+"update": 1,
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:visible")
+tracks/2/path = NodePath("MarginContainer/Polygon2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(501, 9)]
 }
 
 [sub_resource type="Animation" id="Animation_tedt5"]
@@ -49,26 +49,26 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/Polygon2D:position")
+tracks/0/path = NodePath("MarginContainer/Polygon2D:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(490, 49.25), Vector2(490, 44)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/Polygon2D:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0.0333333),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/Polygon2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(501, 9), Vector2(501, 16)]
 }
 
 [sub_resource type="Animation" id="Animation_pfm15"]
@@ -113,36 +113,47 @@ _data = {
 [node name="dialogueBox" type="Node2D"]
 visible = false
 z_index = 10
-position = Vector2(0, 250)
+position = Vector2(0, 291)
 script = ExtResource("1_ntx7d")
 
 [node name="npcFace" type="Sprite2D" parent="."]
 z_index = 10
-position = Vector2(213, 324)
+position = Vector2(213, 309)
 scale = Vector2(0.93, 0.93)
 
 [node name="dialogue_box_sprite" type="Sprite2D" parent="."]
 z_index = 10
-position = Vector2(626, 379.75)
-scale = Vector2(1.216, 0.614428)
-texture = ExtResource("2_8e00r")
+position = Vector2(749.5, 333.596)
+scale = Vector2(1.07375, 1.07596)
+texture = ExtResource("2_25pkf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_gmvy4")
 }
 
+[node name="entityName" type="Label" parent="."]
+z_index = 10
+offset_left = 351.0
+offset_top = 257.0
+offset_right = 468.0
+offset_bottom = 285.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_left = 365.0
-offset_top = 321.75
-offset_right = 930.0
-offset_bottom = 435.75
+offset_left = 399.0
+offset_top = 299.0
+offset_right = 920.0
+offset_bottom = 358.0
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="dialogue" type="Label" parent="MarginContainer"]
 z_index = 10
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -151,7 +162,7 @@ autowrap_mode = 3
 [node name="Polygon2D" type="Polygon2D" parent="MarginContainer"]
 visible = false
 z_index = 10
-position = Vector2(490, 49.25)
+position = Vector2(501, 9)
 scale = Vector2(0.424242, 1)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(41, 30, 74, 30, 58, 49)

@@ -6,8 +6,9 @@ signal _showDialogue(_name: String, dialogue: String)
 signal _hideDialogueBox
 
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
-@onready var label: Label = $MarginContainer/Label
+@onready var label: Label = $MarginContainer/dialogue
 @onready var timer: Timer = $Timer
+@onready var entityName: Label = $entityName
 @onready var dialogueManager: Node = %dialogueManager
 @onready var face: Sprite2D = $npcFace
 
@@ -32,6 +33,7 @@ func hideDialogueBox():
 
 func showDialogue(_name: String, dialogue: String):
 	var face_texture = null
+	entityName.text = ""
 	if face_cache.has(_name):
 		face_texture = face_cache[_name]
 	else:
@@ -39,6 +41,7 @@ func showDialogue(_name: String, dialogue: String):
 		face_texture = load(face_loc)
 		face_cache[_name] = face_texture
 	face.texture = face_texture
+	entityName.text = _name
 	printLetters(dialogue)
 
 func printLetters(dialogue: String):

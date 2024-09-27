@@ -17,7 +17,7 @@ signal _dialougeCompleted
 
 var dialogues: Array = []
 
-var i = 0
+@export var i = 0
 
 var isLineFinished: bool = false
 var isSpaceClicked: bool = false
