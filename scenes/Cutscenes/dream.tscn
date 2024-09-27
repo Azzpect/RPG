@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6nqtwjmhxyix"]
+[gd_scene load_steps=11 format=3 uid="uid://c6nqtwjmhxyix"]
 
-[ext_resource type="Texture2D" uid="uid://ccb83hxyn1vw3" path="res://Assets/Castle/castle.png" id="1_nowtn"]
-[ext_resource type="Texture2D" uid="uid://clkragiltgnsx" path="res://Assets/Castle/castle_pillar.png" id="2_mga16"]
-[ext_resource type="Texture2D" uid="uid://dftjgov215lqo" path="res://Assets/Castle/knight.png" id="3_mmlit"]
-[ext_resource type="Texture2D" uid="uid://bvfqcy3dpcx1i" path="res://Assets/Castle/demon.png" id="4_3q7gk"]
-[ext_resource type="PackedScene" uid="uid://c2q4v0ek7amap" path="res://scenes/utility/dialogue_box.tscn" id="5_0e8at"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="7_kk77p"]
+[ext_resource type="Texture2D" uid="uid://ccb83hxyn1vw3" path="res://assets/castle/castle.png" id="1_nowtn"]
+[ext_resource type="Texture2D" uid="uid://clkragiltgnsx" path="res://assets/castle/castle_pillar.png" id="2_mga16"]
+[ext_resource type="Texture2D" uid="uid://dftjgov215lqo" path="res://assets/castle/knight.png" id="3_mmlit"]
+[ext_resource type="Texture2D" uid="uid://bvfqcy3dpcx1i" path="res://assets/castle/demon.png" id="4_3q7gk"]
+[ext_resource type="PackedScene" uid="uid://c2q4v0ek7amap" path="res://scenes/utility/dialogueBox.tscn" id="5_0e8at"]
+[ext_resource type="Script" path="res://scripts/dream1GameManager.gd" id="6_glo7i"]
+[ext_resource type="PackedScene" uid="uid://dtsq4pxmnsu3s" path="res://scenes/utility/dialogueManager.tscn" id="6_n6q6t"]
+[ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="8_ts5ub"]
 
 [sub_resource type="Gradient" id="Gradient_wff68"]
 offsets = PackedFloat32Array(0.0608696, 0.886957)
@@ -132,6 +134,7 @@ texture = SubResource("GradientTexture2D_gj4cj")
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.3
 blend_mode = 1
+range_z_max = 5
 
 [node name="knight" type="Sprite2D" parent="."]
 z_index = 5
@@ -143,14 +146,21 @@ z_index = 5
 position = Vector2(802, 301)
 texture = ExtResource("4_3q7gk")
 
-[node name="dialogue_box" parent="." instance=ExtResource("5_0e8at")]
+[node name="dialogueBox" parent="." instance=ExtResource("5_0e8at")]
 unique_name_in_owner = true
 
-[node name="game_manager" type="Node" parent="."]
+[node name="dialogueManager" parent="." instance=ExtResource("6_n6q6t")]
 unique_name_in_owner = true
-script = ExtResource("7_kk77p")
+dialogueFileLoc = "res://dialogues/dream1.txt"
 
-[node name="Timer" type="Timer" parent="game_manager"]
+[node name="gameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_glo7i")
+
+[node name="Timer" type="Timer" parent="gameManager"]
 one_shot = true
 
-[connection signal="timeout" from="game_manager/Timer" to="game_manager" method="_on_timer_timeout"]
+[node name="transitioner" parent="." instance=ExtResource("8_ts5ub")]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="gameManager/Timer" to="gameManager" method="_on_timer_timeout"]

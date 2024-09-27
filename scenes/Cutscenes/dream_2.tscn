@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://o4hwr785bia1"]
+
+[ext_resource type="PackedScene" uid="uid://dmsujtam55a8o" path="res://scenes/utility/playerRoom.tscn" id="1_jejgm"]
+[ext_resource type="PackedScene" uid="uid://blv4yr8e31r0" path="res://scenes/utility/dialogueBox2.tscn" id="2_k8tx4"]
+[ext_resource type="PackedScene" uid="uid://dtsq4pxmnsu3s" path="res://scenes/utility/dialogueManager.tscn" id="2_kgq85"]
+[ext_resource type="Script" path="res://scripts/dream2GameManager.gd" id="2_w8fvc"]
+[ext_resource type="Texture2D" uid="uid://cysyoskcgxt8a" path="res://assets/characters/player.png" id="6_b8bta"]
+[ext_resource type="Texture2D" uid="uid://63xxrvct1vk7" path="res://assets/characters/mom_side.png" id="6_wvjku"]
+[ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="7_yboi7"]
+
+[node name="dream2" type="Node2D"]
+
+[node name="playerRoom" parent="." instance=ExtResource("1_jejgm")]
+
+[node name="dialogueBox" parent="." instance=ExtResource("2_k8tx4")]
+unique_name_in_owner = true
+
+[node name="dialogueManager" parent="." instance=ExtResource("2_kgq85")]
+unique_name_in_owner = true
+dialogueFileLoc = "res://dialogues/dream2.txt"
+
+[node name="gameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_w8fvc")
+
+[node name="Timer" type="Timer" parent="gameManager"]
+
+[node name="player" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(424, 446)
+rotation = 3.14159
+texture = ExtResource("6_b8bta")
+
+[node name="mother" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(462, 432)
+texture = ExtResource("6_wvjku")
+flip_h = true
+
+[node name="transitioner" parent="." instance=ExtResource("7_yboi7")]
+unique_name_in_owner = true
