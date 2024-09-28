@@ -11,7 +11,9 @@ config_version=5
 [application]
 
 config/name="RPG"
-run/main_scene="res://scenes/Cutscenes/dream.tscn"
+run/main_scene="res://scenes/StartMenu.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="rpg"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 

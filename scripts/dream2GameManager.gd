@@ -7,10 +7,12 @@ signal _sceneEnded
 @onready var timer: Timer = $Timer
 @onready var mother: Sprite2D = %mother
 @onready var transitioner: Node2D = %transitioner
+var nextScene: String = "res://scenes/utility/scene_1.tscn"
 
-var nextScene: String = "res://scenes/utility/playerRoom.tscn"
+var resourceManager: ResourceManager = ResourceManager.new()
 
 func _ready():
+	resourceManager.save({"scene": get_tree().current_scene.scene_file_path})
 	connect("_sceneEnded", sceneEnded)
 	dialogueManager.emit_signal("_readDialogueFile")
 	timer.start()

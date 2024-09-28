@@ -7,9 +7,11 @@ signal _sceneEnded
 @onready var timer: Timer = $Timer
 @onready var transitioner: Node2D = %transitioner
 var nextScene: String = "res://scenes/Cutscenes/dream_2.tscn"
+var resourceManager: ResourceManager = ResourceManager.new()
 
 func _ready():
 	connect("_sceneEnded", sceneEnded)
+	resourceManager.save({"scene": get_tree().current_scene.scene_file_path})
 	dialogueManager.emit_signal("_readDialogueFile")
 	timer.start()
 	await timer.timeout
