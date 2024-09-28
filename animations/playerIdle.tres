@@ -1,0 +1,24 @@
+[gd_resource type="AnimationNodeBlendSpace2D" load_steps=5 format=3 uid="uid://dnu4ytowq283d"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ynu4p"]
+animation = &"front_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j5p2i"]
+animation = &"right_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s1eeq"]
+animation = &"back_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5gdkj"]
+animation = &"left_idle"
+
+[resource]
+blend_point_0/node = SubResource("AnimationNodeAnimation_ynu4p")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_j5p2i")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_s1eeq")
+blend_point_2/pos = Vector2(0, -0.9)
+blend_point_3/node = SubResource("AnimationNodeAnimation_5gdkj")
+blend_point_3/pos = Vector2(-1, 0)
+blend_mode = 1

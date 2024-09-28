@@ -5,7 +5,8 @@
 
 [node name="scene1" type="Node2D"]
 
-[node name="playerRoom" parent="." instance=ExtResource("1_0h77q")]
-
 [node name="player" parent="." instance=ExtResource("2_5ji7f")]
+z_index = 5
 position = Vector2(417, 355)
+
+[node name="playerRoom" parent="." instance=ExtResource("1_0h77q")]
