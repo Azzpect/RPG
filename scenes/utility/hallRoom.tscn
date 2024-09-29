@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://cg2kjqpuca4c6"]
+[gd_scene load_steps=6 format=4 uid="uid://cg2kjqpuca4c6"]
 
 [ext_resource type="TileSet" uid="uid://cn2l6u2oc4aq6" path="res://Assets/Tileset/room.tres" id="1_22he2"]
 [ext_resource type="PackedScene" uid="uid://co2475gp7n187" path="res://scenes/utility/teleporter.tscn" id="2_nn80i"]
 [ext_resource type="Texture2D" uid="uid://bersmv3xafwiv" path="res://Assets/Room/carpet1.png" id="3_03j52"]
 [ext_resource type="Texture2D" uid="uid://dx4dmxu02788i" path="res://Assets/Room/door.png" id="4_inuqu"]
+[ext_resource type="PackedScene" uid="uid://b0k0i76iq8ie5" path="res://scenes/utility/character/player.tscn" id="5_8irt1"]
 
 [node name="hall_room" type="Node2D"]
 y_sort_enabled = true
@@ -45,3 +46,6 @@ position = Vector2(903, 374)
 [node name="Sprite2D" type="Sprite2D" parent="telepoter"]
 position = Vector2(1, -19)
 texture = ExtResource("4_inuqu")
+
+[node name="player" parent="." instance=ExtResource("5_8irt1")]
+position = Vector2(564, 413)
