@@ -44,5 +44,3 @@ func loadData():
 			byteVal += int(byte[i]) * pow(2, 7-i)
 		data += char(byteVal)
 	gameData = JSON.parse_string(data)
-
-

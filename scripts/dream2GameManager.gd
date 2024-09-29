@@ -17,7 +17,7 @@ signal _sceneEnded
 @onready var mother: Sprite2D = %mother
 
 #next scene file path
-var nextScene: String = "res://scenes/utility/scene_1.tscn"
+var nextScene: String = "res://scenes/scene_1.tscn"
 
 #the resource manager node that keeps track of the game data
 var resourceManager: ResourceManager = ResourceManager.new()
@@ -63,5 +63,3 @@ func _process(delta: float) -> void:
 #function for _sceneEnded signal
 func sceneEnded():
 	get_tree().change_scene_to_file(nextScene)
-
-
