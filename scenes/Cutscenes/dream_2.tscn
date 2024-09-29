@@ -4,8 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://blv4yr8e31r0" path="res://scenes/utility/dialogueBox2.tscn" id="2_k8tx4"]
 [ext_resource type="PackedScene" uid="uid://dtsq4pxmnsu3s" path="res://scenes/utility/dialogueManager.tscn" id="2_kgq85"]
 [ext_resource type="Script" path="res://scripts/dream2GameManager.gd" id="2_w8fvc"]
+<<<<<<< HEAD
+[ext_resource type="Texture2D" uid="uid://clo3mmys0c8bk" path="res://Assets/characters/player.png" id="6_b8bta"]
+[ext_resource type="Texture2D" uid="uid://bmu6bm70osha7" path="res://Assets/characters/mom_side.png" id="6_wvjku"]
+=======
 [ext_resource type="Texture2D" uid="uid://djdskaepv7nog" path="res://Assets/characters/player.png" id="6_b8bta"]
 [ext_resource type="Texture2D" uid="uid://nnv28j8s74ip" path="res://Assets/characters/mom_side.png" id="6_wvjku"]
+>>>>>>> main
 [ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="7_yboi7"]
 
 [node name="dream2" type="Node2D"]

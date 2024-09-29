@@ -5,7 +5,7 @@
 [ext_resource type="AnimationNodeStateMachine" uid="uid://ykbv0r3j5csn" path="res://animations/playerStates.tres" id="3_judq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxotp"]
-size = Vector2(9.5, 3)
+size = Vector2(11, 3)
 
 [sub_resource type="Animation" id="Animation_axlh4"]
 length = 0.001
@@ -242,11 +242,12 @@ y_sort_enabled = true
 script = ExtResource("1_rrlnj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.25, 30.5)
+position = Vector2(-0.5, -2.5)
 shape = SubResource("RectangleShape2D_vxotp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_06nlb")
+offset = Vector2(0, -32)
 hframes = 4
 vframes = 4
 
