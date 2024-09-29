@@ -1,15 +1,15 @@
 [gd_resource type="TileSet" load_steps=21 format=3 uid="uid://cn2l6u2oc4aq6"]
 
-[ext_resource type="Texture2D" uid="uid://bjomgisgp3bcv" path="res://Assets/Room/shelve1.png" id="3_r57g6"]
-[ext_resource type="Texture2D" uid="uid://h1cbqfn2f1e5" path="res://assets/room/bed.png" id="5_d5cqq"]
-[ext_resource type="Texture2D" uid="uid://bg0aipcshgex4" path="res://Assets/Room/clock.png" id="8_wulw1"]
-[ext_resource type="Texture2D" uid="uid://c57misiiracw5" path="res://Assets/Room/tiles.png" id="9_053b3"]
-[ext_resource type="Texture2D" uid="uid://dqmvra26h3gb3" path="res://assets/room/pot1.png" id="9_a5xgt"]
-[ext_resource type="Texture2D" uid="uid://dtuaaafs1w6rn" path="res://Assets/Room/christmas-tree.png" id="12_cewia"]
-[ext_resource type="Texture2D" uid="uid://r5fhtqyqaqdr" path="res://assets/room/window2.png" id="13_jviwt"]
-[ext_resource type="Texture2D" uid="uid://b58pkth6dm7hu" path="res://Assets/Room/tv.png" id="14_awtl6"]
-[ext_resource type="Texture2D" uid="uid://c6k5j3iuqb3k0" path="res://Assets/Room/shelve4.png" id="15_3pijj"]
-[ext_resource type="Texture2D" uid="uid://bmgs68iq5754s" path="res://Assets/Room/couch.png" id="16_5m5uv"]
+[ext_resource type="Texture2D" uid="uid://54mbahkpdxog" path="res://Assets/Room/shelve1.png" id="3_r57g6"]
+[ext_resource type="Texture2D" uid="uid://bksb82d8wmom3" path="res://Assets/Room/bed.png" id="5_d5cqq"]
+[ext_resource type="Texture2D" uid="uid://bpljh6fkcg7en" path="res://Assets/Room/clock.png" id="8_wulw1"]
+[ext_resource type="Texture2D" uid="uid://c8373rbpbvqx5" path="res://Assets/Room/tiles.png" id="9_053b3"]
+[ext_resource type="Texture2D" uid="uid://cv41pc7lba6qk" path="res://Assets/Room/pot1.png" id="9_a5xgt"]
+[ext_resource type="Texture2D" uid="uid://d3sjre580i8h" path="res://Assets/Room/christmas-tree.png" id="12_cewia"]
+[ext_resource type="Texture2D" uid="uid://bhh1vd01ckjmb" path="res://Assets/Room/window2.png" id="13_jviwt"]
+[ext_resource type="Texture2D" uid="uid://c61rrbvwwneu6" path="res://Assets/Room/tv.png" id="14_awtl6"]
+[ext_resource type="Texture2D" uid="uid://bw6am6qf42hvx" path="res://Assets/Room/shelve4.png" id="15_3pijj"]
+[ext_resource type="Texture2D" uid="uid://b3w7nsfyfwnmq" path="res://Assets/Room/couch.png" id="16_5m5uv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vi2c7"]
 texture = ExtResource("3_r57g6")
@@ -35,16 +35,20 @@ texture = ExtResource("9_053b3")
 6:2/0 = 0
 6:3/0 = 0
 5:3/0 = 0
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7n257"]
 texture = ExtResource("16_5m5uv")
 2:1/size_in_atlas = Vector2i(6, 3)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36.5, -18.5, 41.7193, -17.6777, 42.5, 18.5, -35.5, 18.5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oin62"]
 texture = ExtResource("5_d5cqq")
 0:0/size_in_atlas = Vector2i(5, 5)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-19.25, -38.25, 25.1023, -39.2444, 25.1023, 27.9307, -20.8596, 27.2236)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mgc0"]
 texture = ExtResource("13_jviwt")
@@ -55,14 +59,16 @@ texture = ExtResource("13_jviwt")
 texture = ExtResource("9_a5xgt")
 3:3/size_in_atlas = Vector2i(2, 3)
 3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(20.5, -34.5, 24.5, 27.5, -15.5, 28.5, -19.5, -35.5)
 6:2/size_in_atlas = Vector2i(2, 3)
 6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.875, 4.125, 5.875, 10.125, -1.375, 10.625, -2.375, 4.625)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u6yj1"]
 texture = ExtResource("12_cewia")
 1:2/size_in_atlas = Vector2i(4, 5)
 1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25.1023, 22.981, 24.3952, 22.981, 25.1023, 37.8302, -25.1023, 38.5373)
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-23.25, 24.75, 24.75, 23.25, 25.75, 37.75, -23.25, 38.25)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6l0g1"]
 texture = ExtResource("14_awtl6")

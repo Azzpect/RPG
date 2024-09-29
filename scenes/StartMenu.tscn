@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci1o0lypo0mhe"]
+
+[ext_resource type="Script" path="res://scripts/startMenuGameManager.gd" id="1_2khan"]
+
+[node name="StartMenu" type="Node2D"]
+
+[node name="continue" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 519.0
+offset_top = 262.0
+offset_right = 737.0
+offset_bottom = 335.0
+text = "Continue"
+
+[node name="start" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 519.0
+offset_top = 354.0
+offset_right = 737.0
+offset_bottom = 427.0
+text = "Start Game"
+
+[node name="gameManager" type="Node" parent="."]
+script = ExtResource("1_2khan")
+
+[connection signal="pressed" from="continue" to="gameManager" method="_on_continue_pressed"]
+[connection signal="pressed" from="start" to="gameManager" method="_on_start_pressed"]
