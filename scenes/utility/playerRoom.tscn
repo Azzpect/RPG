@@ -22,7 +22,7 @@ tile_set = ExtResource("1_sv4xc")
 
 [node name="furniture" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAcAB0ADAAAAAAAAAAcAA4AHQAAAAAAAAAeAA4AHQAAAAAAAAAiAA4AEgABAAIAAAAgABEABgABAAIAAAAkABAACgACAAIAAAAaABEADgAAAAIAAAAnABIAGQABAAEAAAAnABEAGwABAAEAAAArABEADwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAcAB0ADAAAAAAAAAAcAA4AHQAAAAAAAAAeAA4AHQAAAAAAAAAiAA4AEgABAAIAAAAgABEABgABAAIAAAAaABEADgAAAAIAAAAnABIAGQABAAEAAAAnABEAGwABAAEAAAArABEADwAAAAAAAAA=")
 tile_set = ExtResource("1_sv4xc")
 
 [node name="telepoter" parent="." instance=ExtResource("2_skt8j")]
