@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://c6nqtwjmhxyix"]
 
-[ext_resource type="Texture2D" uid="uid://ccb83hxyn1vw3" path="res://assets/castle/castle.png" id="1_nowtn"]
-[ext_resource type="Texture2D" uid="uid://clkragiltgnsx" path="res://assets/castle/castle_pillar.png" id="2_mga16"]
-[ext_resource type="Texture2D" uid="uid://dftjgov215lqo" path="res://assets/castle/knight.png" id="3_mmlit"]
-[ext_resource type="Texture2D" uid="uid://bvfqcy3dpcx1i" path="res://assets/castle/demon.png" id="4_3q7gk"]
+[ext_resource type="Texture2D" uid="uid://pufxl2adjmfm" path="res://Assets/Castle/castle.png" id="1_nowtn"]
+[ext_resource type="Texture2D" uid="uid://dt48wllunamoc" path="res://Assets/Castle/castle_pillar.png" id="2_mga16"]
+[ext_resource type="Texture2D" uid="uid://d38obs3yhnmkf" path="res://Assets/Castle/knight.png" id="3_mmlit"]
+[ext_resource type="Texture2D" uid="uid://dkmmcbsnlll7x" path="res://Assets/Castle/demon.png" id="4_3q7gk"]
 [ext_resource type="PackedScene" uid="uid://c2q4v0ek7amap" path="res://scenes/utility/dialogueBox.tscn" id="5_0e8at"]
 [ext_resource type="Script" path="res://scripts/dream1GameManager.gd" id="6_glo7i"]
 [ext_resource type="PackedScene" uid="uid://dtsq4pxmnsu3s" path="res://scenes/utility/dialogueManager.tscn" id="6_n6q6t"]
