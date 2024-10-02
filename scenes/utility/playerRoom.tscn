@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://ctjfffivt3yfj"]
+[gd_scene load_steps=5 format=4 uid="uid://ctjfffivt3yfj"]
 
 [ext_resource type="TileSet" uid="uid://cn2l6u2oc4aq6" path="res://Assets/Tileset/room.tres" id="1_sv4xc"]
 [ext_resource type="PackedScene" uid="uid://co2475gp7n187" path="res://scenes/utility/teleporter.tscn" id="2_skt8j"]
-[ext_resource type="Texture2D" uid="uid://bvqcmhgbeiec4" path="res://Assets/Room/carpet1.png" id="3_q642r"]
-[ext_resource type="Texture2D" uid="uid://bcbf7rbnwqfmb" path="res://Assets/Room/bedsheet.png" id="5_htitq"]
-[ext_resource type="PackedScene" uid="uid://b0k0i76iq8ie5" path="res://scenes/utility/character/player.tscn" id="5_k4x3m"]
+[ext_resource type="Texture2D" uid="uid://ctnh26jtmj06e" path="res://Assets/Room/carpet1.png" id="3_q642r"]
+[ext_resource type="Texture2D" uid="uid://cbixpbrtsmdng" path="res://Assets/Room/bedsheet.png" id="5_htitq"]
 
 [node name="playerRoom" type="Node2D"]
 y_sort_enabled = true
@@ -38,6 +37,3 @@ texture = ExtResource("3_q642r")
 z_index = 1
 position = Vector2(444, 436)
 texture = ExtResource("5_htitq")
-
-[node name="player" parent="." instance=ExtResource("5_k4x3m")]
-position = Vector2(553, 341)

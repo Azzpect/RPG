@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://bai158x000cer"]
 
-[ext_resource type="PackedScene" uid="uid://cyxw3f0kocow8" path="res://scenes/utility/playerRoom.tscn" id="1_i2sh8"]
+[ext_resource type="PackedScene" uid="uid://ctjfffivt3yfj" path="res://scenes/utility/playerRoom.tscn" id="1_i2sh8"]
 [ext_resource type="PackedScene" uid="uid://blv4yr8e31r0" path="res://scenes/utility/dialogueBox2.tscn" id="2_84ybf"]
 [ext_resource type="PackedScene" uid="uid://dtsq4pxmnsu3s" path="res://scenes/utility/dialogueManager.tscn" id="3_yv1x8"]
 [ext_resource type="Script" path="res://scripts/dream2GameManager.gd" id="4_61l0m"]
-[ext_resource type="Texture2D" uid="uid://nnv28j8s74ip" path="res://Assets/characters/mom_side.png" id="5_tjgq4"]
-[ext_resource type="Texture2D" uid="uid://bqhrrace7l3xx" path="res://Assets/characters/player/player.png" id="6_kg3l3"]
+[ext_resource type="Texture2D" uid="uid://cvdivo4knnsqj" path="res://Assets/characters/mom_side.png" id="5_tjgq4"]
+[ext_resource type="Texture2D" uid="uid://6s3ai0xjpu5b" path="res://Assets/characters/player/player.png" id="6_kg3l3"]
 [ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="7_osls5"]
 
 [node name="dream_2" type="Node2D"]
@@ -27,12 +27,12 @@ script = ExtResource("4_61l0m")
 
 [node name="mother" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(489, 469)
+position = Vector2(481, 422)
 texture = ExtResource("5_tjgq4")
 flip_h = true
 
 [node name="player" type="Sprite2D" parent="."]
-position = Vector2(456, 474)
+position = Vector2(442, 424)
 texture = ExtResource("6_kg3l3")
 
 [node name="transitioner" parent="." instance=ExtResource("7_osls5")]
