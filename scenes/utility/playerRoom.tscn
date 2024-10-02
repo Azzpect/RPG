@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=4 uid="uid://ctjfffivt3yfj"]
+[gd_scene load_steps=4 format=4 uid="uid://ctjfffivt3yfj"]
 
 [ext_resource type="TileSet" uid="uid://cn2l6u2oc4aq6" path="res://Assets/Tileset/room.tres" id="1_sv4xc"]
-[ext_resource type="PackedScene" uid="uid://co2475gp7n187" path="res://scenes/utility/teleporter.tscn" id="2_skt8j"]
 [ext_resource type="Texture2D" uid="uid://ctnh26jtmj06e" path="res://Assets/Room/carpet1.png" id="3_q642r"]
 [ext_resource type="Texture2D" uid="uid://cbixpbrtsmdng" path="res://Assets/Room/bedsheet.png" id="5_htitq"]
 
@@ -25,15 +24,12 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAeAA4AHQAAAAAAAAAiAA4AEgABAAIAAAAaABEADgAAAAIAAAAqABEADwAAAAAAAAAmABEAGQABAAAAAAAbABoADAAAAAAAAAA=")
 tile_set = ExtResource("1_sv4xc")
 
-[node name="telepoter" parent="." instance=ExtResource("2_skt8j")]
-position = Vector2(710, 486)
-
-[node name="Sprite2D" type="Sprite2D" parent="telepoter"]
-position = Vector2(-3, -1.99999)
-scale = Vector2(0.92, 0.885)
-texture = ExtResource("3_q642r")
-
 [node name="bedsheet" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(444, 436)
+y_sort_enabled = true
+position = Vector2(443, 437)
 texture = ExtResource("5_htitq")
+
+[node name="teleporter" type="Sprite2D" parent="."]
+position = Vector2(706, 481)
+texture = ExtResource("3_q642r")

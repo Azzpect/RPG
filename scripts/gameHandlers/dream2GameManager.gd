@@ -17,7 +17,7 @@ signal _sceneEnded
 @onready var mother: Sprite2D = %mother
 
 #next scene file path
-var nextScene: String = "res://scenes/gameScenes/scene_1.tscn"
+var nextScene: String = "res://scenes/gameScenes/playerRoomScene.tscn"
 
 #the resource manager node that keeps track of the game data
 var resourceManager: ResourceManager = ResourceManager.new()

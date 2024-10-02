@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy6aconnsl6sr"]
+
+[ext_resource type="PackedScene" uid="uid://cg2kjqpuca4c6" path="res://scenes/utility/hallRoom.tscn" id="1_uq8io"]
+[ext_resource type="PackedScene" uid="uid://co2475gp7n187" path="res://scenes/utility/teleporter.tscn" id="2_jwlql"]
+[ext_resource type="Script" path="res://scripts/gameHandlers/hallRoomGameManager.gd" id="2_ro75r"]
+[ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="4_r0hmn"]
+[ext_resource type="PackedScene" uid="uid://b0k0i76iq8ie5" path="res://scenes/utility/character/player.tscn" id="5_xuice"]
+
+[node name="hallRoomScene" type="Node2D"]
+y_sort_enabled = true
+
+[node name="hall_room" parent="." instance=ExtResource("1_uq8io")]
+
+[node name="gameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_ro75r")
+
+[node name="telepoter" parent="." instance=ExtResource("2_jwlql")]
+position = Vector2(905, 376)
+rotation = 1.5708
+
+[node name="telepoter2" parent="." instance=ExtResource("2_jwlql")]
+position = Vector2(911, 536)
+rotation = 1.5708
+
+[node name="telepoter3" parent="." instance=ExtResource("2_jwlql")]
+position = Vector2(937, 465)
+
+[node name="transitioner" parent="." instance=ExtResource("4_r0hmn")]
+unique_name_in_owner = true
+
+[node name="player" parent="." instance=ExtResource("5_xuice")]
+position = Vector2(824, 485)
+
+[connection signal="body_entered" from="telepoter" to="gameManager" method="_on_telepoter_body_entered"]
+[connection signal="body_entered" from="telepoter3" to="gameManager" method="_on_telepoter_3_body_entered"]

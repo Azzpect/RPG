@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=9 format=3 uid="uid://cgy2h0etujai1"]
 
-[ext_resource type="Texture2D" uid="uid://b0txc4q4ivyre" path="res://Assets/Lab/labTileSet.png" id="1_pikdr"]
-[ext_resource type="Texture2D" uid="uid://bjjxupmnva22k" path="res://Assets/Lab/compDesk.png" id="2_d1fb3"]
-[ext_resource type="Texture2D" uid="uid://b6amm75xc01cw" path="res://Assets/Lab/LabShelve.png" id="3_wnlcq"]
-[ext_resource type="Texture2D" uid="uid://bw4kko3vs8xuh" path="res://Assets/Room/shelve.png" id="4_va124"]
+[ext_resource type="Texture2D" uid="uid://77vpwrmpe5ay" path="res://Assets/Lab/labTileSet.png" id="1_pikdr"]
+[ext_resource type="Texture2D" uid="uid://bm8pfwr87vtbt" path="res://Assets/Lab/compDesk.png" id="2_d1fb3"]
+[ext_resource type="Texture2D" uid="uid://dpwyv8tq4opcq" path="res://Assets/Lab/LabShelve.png" id="3_wnlcq"]
+[ext_resource type="Texture2D" uid="uid://jhv20o81egtl" path="res://Assets/Room/shelve.png" id="4_va124"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_loemd"]
 texture = ExtResource("1_pikdr")
