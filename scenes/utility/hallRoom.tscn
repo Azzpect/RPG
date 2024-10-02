@@ -2,8 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://cn2l6u2oc4aq6" path="res://Assets/Tileset/room.tres" id="1_22he2"]
 [ext_resource type="PackedScene" uid="uid://co2475gp7n187" path="res://scenes/utility/teleporter.tscn" id="2_nn80i"]
-[ext_resource type="Texture2D" uid="uid://bersmv3xafwiv" path="res://Assets/Room/carpet1.png" id="3_03j52"]
-[ext_resource type="Texture2D" uid="uid://dx4dmxu02788i" path="res://Assets/Room/door.png" id="4_inuqu"]
+[ext_resource type="Texture2D" uid="uid://bvqcmhgbeiec4" path="res://Assets/Room/carpet1.png" id="3_03j52"]
+[ext_resource type="Texture2D" uid="uid://c2o3o5oqku0v5" path="res://Assets/Room/door.png" id="4_inuqu"]
 
 [node name="hall_room" type="Node2D"]
 y_sort_enabled = true
@@ -26,17 +26,20 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAPACAACwAAAAAAAAAOAB4AAgAAAAAAAAAQAB4AAgAAAAAAAAAmABIAEQAAAAAAAAARAB8AEwAAAAEAAAARACAAEwAAAAEAAAAqABkAFQAAAAAAAAAiABkAFAAAAAAAAAAmABsAFgAAAAEAAAAwABYADgAAAAIAAAAfABEADQAAAAAAAAAcABYADgAEAAIAAAAmABkAFwAAAAAAAAANAB8AEwAAAAEAABANACAAEwAAAAEAABAQABIABQABAAQAAAAQABUABwAAAAAAAAAVABQABAAAAAAAAAAmABYAAAABAAAAAAAOACEAGAAAAAAAAAAQACEAGAAAAAAAAAA=")
 tile_set = ExtResource("1_22he2")
 
-[node name="telepoter2" parent="." instance=ExtResource("2_nn80i")]
-position = Vector2(940, 461)
-
-[node name="Sprite2D" type="Sprite2D" parent="telepoter2"]
-position = Vector2(1, 6)
-texture = ExtResource("3_03j52")
-
 [node name="telepoter3" parent="." instance=ExtResource("2_nn80i")]
-position = Vector2(912, 542)
+position = Vector2(912, 525)
 
 [node name="Sprite2D" type="Sprite2D" parent="telepoter3"]
+position = Vector2(0.999978, 6.99999)
+scale = Vector2(0.83, 0.8)
+texture = ExtResource("3_03j52")
+
+[node name="telepoter4" parent="." instance=ExtResource("2_nn80i")]
+position = Vector2(931, 460)
+
+[node name="Sprite2D" type="Sprite2D" parent="telepoter4"]
+position = Vector2(0.999978, 6.99999)
+scale = Vector2(0.83, 0.8)
 texture = ExtResource("3_03j52")
 
 [node name="telepoter" parent="." instance=ExtResource("2_nn80i")]

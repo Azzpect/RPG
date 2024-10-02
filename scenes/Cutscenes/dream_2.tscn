@@ -1,48 +1,40 @@
-[gd_scene load_steps=8 format=3 uid="uid://o4hwr785bia1"]
+[gd_scene load_steps=8 format=3 uid="uid://bai158x000cer"]
 
-[ext_resource type="PackedScene" uid="uid://dmsujtam55a8o" path="res://scenes/utility/playerRoom.tscn" id="1_jejgm"]
-[ext_resource type="PackedScene" uid="uid://blv4yr8e31r0" path="res://scenes/utility/dialogueBox2.tscn" id="2_k8tx4"]
-[ext_resource type="PackedScene" uid="uid://dtsq4pxmnsu3s" path="res://scenes/utility/dialogueManager.tscn" id="2_kgq85"]
-[ext_resource type="Script" path="res://scripts/dream2GameManager.gd" id="2_w8fvc"]
-<<<<<<< HEAD
-[ext_resource type="Texture2D" uid="uid://clo3mmys0c8bk" path="res://Assets/characters/player.png" id="6_b8bta"]
-[ext_resource type="Texture2D" uid="uid://bmu6bm70osha7" path="res://Assets/characters/mom_side.png" id="6_wvjku"]
-=======
-[ext_resource type="Texture2D" uid="uid://djdskaepv7nog" path="res://Assets/characters/player.png" id="6_b8bta"]
-[ext_resource type="Texture2D" uid="uid://nnv28j8s74ip" path="res://Assets/characters/mom_side.png" id="6_wvjku"]
->>>>>>> main
-[ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="7_yboi7"]
+[ext_resource type="PackedScene" uid="uid://ctjfffivt3yfj" path="res://scenes/utility/playerRoom.tscn" id="1_i2sh8"]
+[ext_resource type="PackedScene" uid="uid://blv4yr8e31r0" path="res://scenes/utility/dialogueBox2.tscn" id="2_84ybf"]
+[ext_resource type="PackedScene" uid="uid://dtsq4pxmnsu3s" path="res://scenes/utility/dialogueManager.tscn" id="3_yv1x8"]
+[ext_resource type="Script" path="res://scripts/dream2GameManager.gd" id="4_61l0m"]
+[ext_resource type="Texture2D" uid="uid://cvdivo4knnsqj" path="res://Assets/characters/mom_side.png" id="5_tjgq4"]
+[ext_resource type="Texture2D" uid="uid://6s3ai0xjpu5b" path="res://Assets/characters/player/player.png" id="6_kg3l3"]
+[ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="7_osls5"]
 
-[node name="dream2" type="Node2D"]
+[node name="dream_2" type="Node2D"]
 
-[node name="playerRoom" parent="." instance=ExtResource("1_jejgm")]
+[node name="playerRoom" parent="." instance=ExtResource("1_i2sh8")]
 
-[node name="dialogueBox" parent="." instance=ExtResource("2_k8tx4")]
+[node name="dialogueBox" parent="." instance=ExtResource("2_84ybf")]
 unique_name_in_owner = true
 
-[node name="dialogueManager" parent="." instance=ExtResource("2_kgq85")]
+[node name="dialogueManager" parent="." instance=ExtResource("3_yv1x8")]
 unique_name_in_owner = true
 dialogueFileLoc = "res://dialogues/dream2.txt"
 
 [node name="gameManager" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("2_w8fvc")
+script = ExtResource("4_61l0m")
 
 [node name="Timer" type="Timer" parent="gameManager"]
 
-[node name="player" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(424, 446)
-rotation = 3.14159
-texture = ExtResource("6_b8bta")
-hframes = 4
-vframes = 4
-
 [node name="mother" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(462, 432)
-texture = ExtResource("6_wvjku")
+position = Vector2(481, 422)
+texture = ExtResource("5_tjgq4")
 flip_h = true
 
-[node name="transitioner" parent="." instance=ExtResource("7_yboi7")]
+[node name="player" type="Sprite2D" parent="."]
+position = Vector2(442, 424)
+texture = ExtResource("6_kg3l3")
+
+[node name="transitioner" parent="." instance=ExtResource("7_osls5")]
 unique_name_in_owner = true
+position = Vector2(5, -11)
