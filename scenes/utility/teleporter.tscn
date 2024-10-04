@@ -1,13 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://co2475gp7n187"]
 
-[ext_resource type="Script" path="res://scripts/utility/teleporter.gd" id="1_krt56"]
+[sub_resource type="GDScript" id="GDScript_lwj76"]
+script/source = "extends Area2D
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cg67f"]
-size = Vector2(10, 18)
+size = Vector2(8.5, 18)
 
 [node name="telepoter" type="Area2D"]
-script = ExtResource("1_krt56")
+script = SubResource("GDScript_lwj76")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 1)
+position = Vector2(4.25, 0)
 shape = SubResource("RectangleShape2D_cg67f")

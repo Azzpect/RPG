@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ci1o0lypo0mhe"]
 
-[ext_resource type="Script" path="res://scripts/startMenuGameManager.gd" id="1_2khan"]
+[ext_resource type="Script" path="res://scripts/gameHandlers/startMenuGameManager.gd" id="1_2khan"]
 
 [node name="StartMenu" type="Node2D"]
 
