@@ -4,15 +4,15 @@ class_name ResourceManager
 const SAVE_FILE_PATH = "user://data.bin"
 
 #the game data
-var gameData = {
+@export var gameData = {
 	"scene": "",
-	"player": PlayerData.new()
+	"player": CharacterData.new()
 }
 
 #saves the game data in the file by converting it in a binary format
 func save(scene := "res://scenes/gameScenes/playerRoomScene.tscn", pos := Vector2.ZERO, direction := Vector2.ZERO):
 	gameData["scene"] = scene
-	gameData["player"] = PlayerData.new(pos, direction)
+	gameData["player"] = CharacterData.new(pos, direction)
 	var data = {
 		"scene": gameData["scene"],
 		"player": {
@@ -67,4 +67,4 @@ func loadData():
 
 
 func playerDataFromDict(position: Dictionary, direction: Dictionary):
-	return PlayerData.new(Vector2(position["x"], position["y"]), Vector2(direction["x"], direction["y"]))
+	return CharacterData.new(Vector2(position["x"], position["y"]), Vector2(direction["x"], direction["y"]))
