@@ -29,7 +29,7 @@ func _ready():
 
 
 	#saves the current scene file path in the game data file so that if the game is quit, the next time the game can be started from here
-	resourceManager.save({"scene": get_tree().current_scene.scene_file_path})
+	resourceManager.save(get_tree().current_scene.scene_file_path)
 
 
 	#emits the signal so that the dialogue manager can read the dialogue file
@@ -62,4 +62,5 @@ func _process(delta: float) -> void:
 
 #function for _sceneEnded signal
 func sceneEnded():
+	resourceManager.save(nextScene, Vector2(418, 338))
 	get_tree().change_scene_to_file(nextScene)

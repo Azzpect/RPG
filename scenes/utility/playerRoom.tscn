@@ -31,5 +31,6 @@ position = Vector2(443, 437)
 texture = ExtResource("5_htitq")
 
 [node name="teleporter" type="Sprite2D" parent="."]
-position = Vector2(706, 481)
+position = Vector2(705, 461)
 texture = ExtResource("3_q642r")
+offset = Vector2(1, 20)

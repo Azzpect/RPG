@@ -26,14 +26,16 @@ tile_map_data = PackedByteArray("AAAPACAACwAAAAAAAAAOAB4AAgAAAAAAAAAQAB4AAgAAAAA
 tile_set = ExtResource("1_22he2")
 
 [node name="teleporter1" type="Sprite2D" parent="."]
-position = Vector2(913, 532)
+position = Vector2(911, 516)
 scale = Vector2(0.83, 0.8)
 texture = ExtResource("3_03j52")
+offset = Vector2(2.40955, 20)
 
 [node name="teleporter2" type="Sprite2D" parent="."]
-position = Vector2(932, 467)
+position = Vector2(931, 451)
 scale = Vector2(0.83, 0.8)
 texture = ExtResource("3_03j52")
+offset = Vector2(1.20483, 20)
 
 [node name="teleporter3" type="Sprite2D" parent="."]
 position = Vector2(904, 355)
