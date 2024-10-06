@@ -16,13 +16,14 @@ unique_name_in_owner = true
 script = ExtResource("2_62lvk")
 
 [node name="telepoter" parent="." instance=ExtResource("4_uin3r")]
-position = Vector2(438, 312)
+position = Vector2(448, 311)
 rotation = 1.5708
-
-[node name="player" parent="." instance=ExtResource("3_ctbts")]
-position = Vector2(507, 369)
 
 [node name="transitioner" parent="." instance=ExtResource("2_t0bgh")]
 unique_name_in_owner = true
+
+[node name="player" parent="." instance=ExtResource("3_ctbts")]
+unique_name_in_owner = true
+position = Vector2(502, 366)
 
 [connection signal="body_entered" from="telepoter" to="gameManager" method="_on_telepoter_body_entered"]

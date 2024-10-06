@@ -7,4 +7,4 @@ func _ready() -> void:
 
 
 func _on_telepoter_body_entered(body: Node2D) -> void:
-	teleport("res://scenes/gameScenes/hallRoomScene.tscn", body)
+	teleport("res://scenes/gameScenes/hallRoomScene.tscn", Vector2(903, 392), Vector2(0, 1), body)
