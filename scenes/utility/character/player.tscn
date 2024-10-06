@@ -145,7 +145,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [8, 9, 10, 11]
+"values": [9, 8, 11, 10]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -203,7 +203,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [8, 9, 10, 11]
+"values": [9, 8, 11, 10]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -232,7 +232,7 @@ _data = {
 }
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ryg78"]
-graph_offset = Vector2(-169.572, 61.555)
+graph_offset = Vector2(-342.736, 95.362)
 nodes/playerStates/node = ExtResource("3_judq7")
 nodes/playerStates/position = Vector2(0, 133.333)
 node_connections = [&"output", 0, &"playerStates"]
@@ -240,6 +240,7 @@ node_connections = [&"output", 0, &"playerStates"]
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_rrlnj")
+speed = 70
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -2.5)

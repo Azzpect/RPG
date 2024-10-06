@@ -16,7 +16,7 @@ unique_name_in_owner = true
 script = ExtResource("2_ro75r")
 
 [node name="telepoter" parent="." instance=ExtResource("2_jwlql")]
-position = Vector2(903, 376)
+position = Vector2(896, 375)
 rotation = 1.5708
 
 [node name="telepoter2" parent="." instance=ExtResource("2_jwlql")]
