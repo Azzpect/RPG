@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var movement: Vector2
 @export var last_direction: Vector2 = Vector2.ZERO
-@export var speed: int = 50
+@export var speed: int = 70
 @onready var gameManager = %gameManager
 @onready var animation_tree: AnimationTree = $AnimationTree
 
