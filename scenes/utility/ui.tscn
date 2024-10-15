@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxa5h0fxscjqa"]
+
+[ext_resource type="Script" path="res://scripts/gameHandlers/uiHandler.gd" id="1_padt1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kerjg"]
+bg_color = Color(1, 0.0509804, 0.129412, 0.756863)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1a88i"]
+bg_color = Color(1, 0.0509804, 0.129412, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.635294)
+shadow_size = 3
+shadow_offset = Vector2(2, 3)
+
+[sub_resource type="Theme" id="Theme_x7yye"]
+Button/styles/hover = SubResource("StyleBoxFlat_kerjg")
+Button/styles/normal = SubResource("StyleBoxFlat_1a88i")
+
+[node name="ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_x7yye")
+script = ExtResource("1_padt1")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 684.0
+offset_right = 94.0
+offset_bottom = 715.0
+text = "Exit Game"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
