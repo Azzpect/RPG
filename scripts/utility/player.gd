@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var movement: Vector2
-@export var last_direction: Vector2 = Vector2.ZERO
+@export var lastDirection: Vector2 = Vector2.ZERO
 @export var speed: int = 70
 @onready var gameManager = %gameManager
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if !gameManager.isSceneEnded:
-		gameManager.saveGameData({"position": position, "direction": last_direction})
+		gameManager.emit_signal("_saveGameData")
 
 
 func _process(delta: float) -> void:
@@ -26,9 +26,9 @@ func _process(delta: float) -> void:
 		movement[1] = Input.get_axis("up", "down")
 	
 	if movement != Vector2.ZERO:
-		last_direction = movement
+		lastDirection = movement
 	
-	animation_tree.set("parameters/playerStates/playerIdle/blend_position", last_direction)
-	animation_tree.set("parameters/playerStates/playerWalk/blend_position", last_direction)
+	animation_tree.set("parameters/playerStates/playerIdle/blend_position", lastDirection)
+	animation_tree.set("parameters/playerStates/playerWalk/blend_position", lastDirection)
 	velocity = movement.normalized() * speed
 	move_and_slide()

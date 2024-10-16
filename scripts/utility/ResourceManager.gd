@@ -10,9 +10,9 @@ const SAVE_FILE_PATH = "user://data.bin"
 }
 
 #saves the game data in the file by converting it in a binary format
-func save(scene := "res://scenes/gameScenes/playerRoomScene.tscn", pos := Vector2.ZERO, direction := Vector2.ZERO):
+func save(scene : String, playerData: CharacterData):
 	gameData["scene"] = scene
-	gameData["player"] = CharacterData.new(pos, direction)
+	gameData["player"] = playerData
 	var data = {
 		"scene": gameData["scene"],
 		"player": {
