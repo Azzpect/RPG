@@ -44,6 +44,9 @@ func teleport(scene: String, playerPos: Vector2, playerDirection: Vector2, body:
 func assignQuest(questTitle: String):
 	resourceManager.save({"quest": questTitle})
 
+func getQuestDetails():
+	return resourceManager.gameData.quest
+
 #function for _sceneEnded signal
 func sceneEnded():
 	get_tree().change_scene_to_file(nextScene)
