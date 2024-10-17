@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dy6aconnsl6sr"]
+[gd_scene load_steps=7 format=3 uid="uid://dy6aconnsl6sr"]
 
 [ext_resource type="PackedScene" uid="uid://cg2kjqpuca4c6" path="res://scenes/utility/hallRoom.tscn" id="1_uq8io"]
 [ext_resource type="PackedScene" uid="uid://co2475gp7n187" path="res://scenes/utility/teleporter.tscn" id="2_jwlql"]
 [ext_resource type="Script" path="res://scripts/gameHandlers/hallRoomGameManager.gd" id="2_ro75r"]
 [ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="4_r0hmn"]
 [ext_resource type="PackedScene" uid="uid://b0k0i76iq8ie5" path="res://scenes/utility/character/player.tscn" id="5_xuice"]
+[ext_resource type="PackedScene" uid="uid://dxa5h0fxscjqa" path="res://scenes/utility/ui.tscn" id="6_lyo4s"]
 
 [node name="hallRoomScene" type="Node2D"]
 y_sort_enabled = true
@@ -32,6 +33,8 @@ unique_name_in_owner = true
 [node name="player" parent="." instance=ExtResource("5_xuice")]
 unique_name_in_owner = true
 position = Vector2(908, 466)
+
+[node name="ui" parent="." instance=ExtResource("6_lyo4s")]
 
 [connection signal="body_entered" from="telepoter" to="gameManager" method="_on_telepoter_body_entered"]
 [connection signal="body_entered" from="telepoter3" to="gameManager" method="_on_telepoter_3_body_entered"]

@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if !gameManager.isSceneEnded:
-		gameManager.emit_signal("_saveGameData")
+		gameManager.emit_signal("_savePlayerData")
 
 
 func _process(delta: float) -> void:
