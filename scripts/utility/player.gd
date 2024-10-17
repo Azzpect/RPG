@@ -4,7 +4,8 @@ extends CharacterBody2D
 var movement: Vector2
 @export var lastDirection: Vector2 = Vector2.ZERO
 @export var speed: int = 70
-@onready var gameManager = %gameManager
+@onready var gameManager: Node = %gameManager
+@onready var los: RayCast2D = %los
 @onready var animation_tree: AnimationTree = $AnimationTree
 
 # Called when the node enters the scene tree for the first time.
@@ -13,6 +14,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if los.is_colliding():
+		print(los.get_collider().name)
 	if not gameManager.isSceneEnded:
 		gameManager.emit_signal("_savePlayerData")
 
@@ -32,3 +35,7 @@ func _process(delta: float) -> void:
 	animation_tree.set("parameters/playerStates/playerWalk/blend_position", lastDirection)
 	velocity = movement.normalized() * speed
 	move_and_slide()
+
+	#raycast
+	los.target_position = lastDirection * 25
+	los.force_raycast_update()

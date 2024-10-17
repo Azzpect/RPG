@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dy6aconnsl6sr"]
+[gd_scene load_steps=11 format=3 uid="uid://dy6aconnsl6sr"]
 
 [ext_resource type="PackedScene" uid="uid://cg2kjqpuca4c6" path="res://scenes/utility/hallRoom.tscn" id="1_uq8io"]
 [ext_resource type="PackedScene" uid="uid://co2475gp7n187" path="res://scenes/utility/teleporter.tscn" id="2_jwlql"]
@@ -6,6 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="4_r0hmn"]
 [ext_resource type="PackedScene" uid="uid://b0k0i76iq8ie5" path="res://scenes/utility/character/player.tscn" id="5_xuice"]
 [ext_resource type="PackedScene" uid="uid://dxa5h0fxscjqa" path="res://scenes/utility/ui.tscn" id="6_lyo4s"]
+[ext_resource type="Texture2D" uid="uid://4cwfb1dsjywe" path="res://Assets/characters/father.png" id="7_504al"]
+[ext_resource type="Texture2D" uid="uid://dlkma1ed80hty" path="res://Assets/characters/mother_front.png" id="8_ii8pm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fkyx"]
+size = Vector2(22, 18.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7twk1"]
+size = Vector2(19.5, 18)
 
 [node name="hallRoomScene" type="Node2D"]
 y_sort_enabled = true
@@ -35,6 +43,33 @@ unique_name_in_owner = true
 position = Vector2(908, 466)
 
 [node name="ui" parent="." instance=ExtResource("6_lyo4s")]
+
+[node name="father" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(257, 512)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="father"]
+position = Vector2(6, -29.75)
+shape = SubResource("RectangleShape2D_8fkyx")
+
+[node name="Sprite2D" type="Sprite2D" parent="father"]
+position = Vector2(3, -24)
+texture = ExtResource("7_504al")
+
+[node name="mother" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(231, 488)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mother"]
+position = Vector2(-0.75, -5)
+shape = SubResource("RectangleShape2D_7twk1")
+
+[node name="Sprite2D" type="Sprite2D" parent="mother"]
+texture = ExtResource("8_ii8pm")
 
 [connection signal="body_entered" from="telepoter" to="gameManager" method="_on_telepoter_body_entered"]
 [connection signal="body_entered" from="telepoter3" to="gameManager" method="_on_telepoter_3_body_entered"]
