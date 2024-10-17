@@ -42,8 +42,11 @@ func teleport(scene: String, playerPos: Vector2, playerDirection: Vector2, body:
 
 
 func assignQuest(questTitle: String):
-	resourceManager.save({"quest": questTitle})
-
+	if QuestData.allQuests[questTitle]["status"] == "not assigned":
+		resourceManager.save({"quest": QuestData.allQuests[questTitle].description})
+		QuestData.allQuests[questTitle]["status"] = "assigned"
+		print("assigned")
+	print(QuestData.allQuests[questTitle])
 func getQuestDetails():
 	return resourceManager.gameData.quest
 
