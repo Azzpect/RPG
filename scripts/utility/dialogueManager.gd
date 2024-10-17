@@ -52,7 +52,7 @@ func spaceClicked():
 
 func _input(event):
 	#checks if the current dialogue line finished printing or not
-	if !isLineFinished:
+	if not isLineFinished:
 		return
 	#if the space button is clicked then the _isSpaceClicked signal is emitted 
 	if event.is_action_pressed("line_continue"):

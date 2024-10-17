@@ -10,7 +10,7 @@ func _init(pos := Vector2.ZERO, dir := Vector2.ZERO) -> void:
 
 func isEqual(obj):
 	if obj is CharacterData:
-		return self.position == obj.position && self.direction == obj.direction
+		return self.position == obj.position and self.direction == obj.direction
 	elif obj is Dictionary:
 		return self.isEqual(playerDataFromDict(obj))
 

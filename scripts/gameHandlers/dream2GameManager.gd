@@ -54,7 +54,7 @@ func _ready():
 func _process(delta: float) -> void:
 	
 	#checks if the dialogue manager reached the 5 the dialogue. if it does then it removes the mother and performs a blink animation with help of the transitioner node
-	if dialogueManager.i == 5 && is_instance_valid(mother):
+	if dialogueManager.i == 5 and is_instance_valid(mother):
 		transitioner.emit_signal("_blink")
 		mother.queue_free()
 

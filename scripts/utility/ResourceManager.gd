@@ -36,7 +36,7 @@ func convertToBin(data: String) -> String:
 #loads game data from the file
 func loadData():
 	#checks if there is any saved file or not
-	if !FileAccess.file_exists(SAVE_FILE_PATH):
+	if not FileAccess.file_exists(SAVE_FILE_PATH):
 		var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
 		file.store_string(JSON.stringify({}))
 		file.close()
