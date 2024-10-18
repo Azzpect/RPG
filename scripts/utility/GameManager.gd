@@ -16,7 +16,6 @@ signal _performBlink
 var nextScene := ""
 var currentScene := ""
 var dialogueRunning = false
-var resourceManager = ResourceManager.new()
 
 #the transitioner node that plays the fade animation for scene loading and ending
 @onready var transitioner: Node2D = %transitioner
@@ -25,10 +24,10 @@ var resourceManager = ResourceManager.new()
 
 func initialize():
 	##saves the current scene file path in the game data file so that if the game is quit, the next time the game can be started from here
-	#resourceManager.save(get_tree().current_scene.scene_file_path)
-	resourceManager.loadData()
-	player.position = resourceManager.gameData.player.position
-	player.lastDirection = resourceManager.gameData.player.direction
+	#GameData.save(get_tree().current_scene.scene_file_path)
+	GameData.loadData()
+	player.position = GameData.bufferedData.player.position
+	player.lastDirection = GameData.bufferedData.player.direction
 	#connects the signal
 	connect("_performBlink", performBlink)
 	#connects the signal
@@ -40,26 +39,26 @@ func initialize():
 	currentScene = get_tree().current_scene.scene_file_path
 
 func savePlayerData():
-	resourceManager.save({"player": CharacterData.new(player.position, player.lastDirection)})	
+	GameData.save({"player": CharacterData.new(player.position, player.lastDirection)})	
 
 
 func teleport(scene: String, playerPos: Vector2, playerDirection: Vector2, body: Node2D):
 	if body.name != "player":
 		return
 	isSceneEnded = true
-	resourceManager.save({"scene": scene, "player": CharacterData.new(playerPos, playerDirection)})
+	GameData.save({"scene": scene, "player": CharacterData.new(playerPos, playerDirection)})
 	nextScene = scene
 	transitioner.emit_signal("_endScene")
 
 
 func assignQuest(questTitle: String):
 	if QuestData.allQuests[questTitle]["status"] == "not assigned":
-		resourceManager.save({"quest": QuestData.allQuests[questTitle].description})
+		GameData.save({"quest": QuestData.allQuests[questTitle].description})
 		QuestData.allQuests[questTitle]["status"] = "assigned"
 		print("assigned")
 	print(QuestData.allQuests[questTitle])
 func getQuestDetails():
-	return resourceManager.gameData.quest
+	return GameData.bufferedData.quest
 
 #function for _sceneEnded signal
 func sceneEnded():

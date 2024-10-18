@@ -19,9 +19,6 @@ signal _sceneEnded
 #next scene file path
 var nextScene: String = "res://scenes/gameScenes/playerRoomScene.tscn"
 
-#the resource manager node that keeps track of the game data
-var resourceManager: ResourceManager = ResourceManager.new()
-
 func _ready():
 	
 	#connects the signal
@@ -29,7 +26,7 @@ func _ready():
 
 
 	#saves the current scene file path in the game data file so that if the game is quit, the next time the game can be started from here
-	resourceManager.save({"scene": get_tree().current_scene.scene_file_path})
+	GameData.save({"scene": get_tree().current_scene.scene_file_path})
 
 
 	#emits the signal so that the dialogue manager can read the dialogue file
@@ -62,7 +59,7 @@ func _process(delta: float) -> void:
 
 #function for _sceneEnded signal
 func sceneEnded():
-	resourceManager.save({"scene":nextScene, "player": {
+	GameData.save({"scene":nextScene, "player": {
 		"position": Vector2(418, 338),
 		"direction": Vector2(0, -1)}})
 	get_tree().change_scene_to_file(nextScene)
