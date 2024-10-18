@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dibioaisyv7o2"]
+[gd_scene load_steps=7 format=3 uid="uid://dibioaisyv7o2"]
 
 [ext_resource type="PackedScene" uid="uid://ctjfffivt3yfj" path="res://scenes/utility/playerRoom.tscn" id="1_0h77q"]
 [ext_resource type="Script" path="res://scripts/gameHandlers/playerRoomGameManager.gd" id="1_6l8uh"]
 [ext_resource type="PackedScene" uid="uid://b0k0i76iq8ie5" path="res://scenes/utility/character/player.tscn" id="2_5ji7f"]
 [ext_resource type="PackedScene" uid="uid://co2475gp7n187" path="res://scenes/utility/teleporter.tscn" id="4_rjjvj"]
 [ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="6_bpuwa"]
+[ext_resource type="PackedScene" uid="uid://dxa5h0fxscjqa" path="res://scenes/utility/ui.tscn" id="6_fr78g"]
 
 [node name="playerRoomScene" type="Node2D"]
 y_sort_enabled = true
@@ -26,5 +27,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 z_index = 5
 position = Vector2(418, 338)
+
+[node name="ui" parent="." instance=ExtResource("6_fr78g")]
 
 [connection signal="body_entered" from="telepoter" to="gameManager" method="_on_telepoter_body_entered"]

@@ -29,7 +29,7 @@ func _ready():
 
 
 	#saves the current scene file path in the game data file so that if the game is quit, the next time the game can be started from here
-	resourceManager.save(get_tree().current_scene.scene_file_path)
+	resourceManager.save({"scene": get_tree().current_scene.scene_file_path})
 
 
 	#emits the signal so that the dialogue manager can read the dialogue file
@@ -54,7 +54,7 @@ func _ready():
 func _process(delta: float) -> void:
 	
 	#checks if the dialogue manager reached the 5 the dialogue. if it does then it removes the mother and performs a blink animation with help of the transitioner node
-	if dialogueManager.i == 5 && is_instance_valid(mother):
+	if dialogueManager.i == 5 and is_instance_valid(mother):
 		transitioner.emit_signal("_blink")
 		mother.queue_free()
 
@@ -62,5 +62,7 @@ func _process(delta: float) -> void:
 
 #function for _sceneEnded signal
 func sceneEnded():
-	resourceManager.save(nextScene, Vector2(418, 338))
+	resourceManager.save({"scene":nextScene, "player": {
+		"position": Vector2(418, 338),
+		"direction": Vector2(0, -1)}})
 	get_tree().change_scene_to_file(nextScene)
