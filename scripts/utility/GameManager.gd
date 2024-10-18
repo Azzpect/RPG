@@ -55,8 +55,7 @@ func assignQuest(questTitle: String):
 	if QuestData.allQuests[questTitle]["status"] == "not assigned":
 		GameData.save({"quest": QuestData.allQuests[questTitle].description})
 		QuestData.allQuests[questTitle]["status"] = "assigned"
-		print("assigned")
-	print(QuestData.allQuests[questTitle])
+		
 func getQuestDetails():
 	return GameData.bufferedData.quest
 

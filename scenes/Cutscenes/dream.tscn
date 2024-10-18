@@ -151,7 +151,7 @@ unique_name_in_owner = true
 
 [node name="dialogueManager" parent="." instance=ExtResource("6_n6q6t")]
 unique_name_in_owner = true
-dialogueFileLoc = "res://dialogues/dream1.txt"
+dialogueFileLoc = "res://dialogues/dream1.crk"
 
 [node name="gameManager" type="Node" parent="."]
 unique_name_in_owner = true

@@ -92,8 +92,9 @@ func readDialogueFile():
 		print("wrong file path")
 		return
 	var file = FileAccess.open(dialogueFileLoc, FileAccess.READ)
-	while not file.eof_reached():
-		var line = file.get_line().trim_prefix(" ").trim_suffix(" ")
+	var fileData = GameData.decrypt(file.get_as_text())
+	for line in fileData.split("\r"):
+		line = line.trim_prefix(" ").trim_suffix(" ")
 		if line == "" or line.begins_with("*"):
 			continue
 		if line == "[::]":
