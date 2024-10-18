@@ -15,7 +15,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if los.is_colliding():
-		print(los.get_collider().name)
+		if los.get_collider().name == "father" and Input.is_action_pressed("interact"):
+			gameManager.emit_signal("_startConversation")
+			speed = 0
 	if not gameManager.isSceneEnded:
 		gameManager.emit_signal("_savePlayerData")
 

@@ -5,16 +5,23 @@ extends Node
 signal _sceneEnded
 # this signal is used by other nodes to tell the gamemanager to save the player data
 signal _savePlayerData
+
+signal _startConversation
+
+signal _performBlink
+
 @export var isSceneEnded = false
 
 
 var nextScene := ""
 var currentScene := ""
+var dialogueRunning = false
 var resourceManager = ResourceManager.new()
 
 #the transitioner node that plays the fade animation for scene loading and ending
 @onready var transitioner: Node2D = %transitioner
 @onready var player: CharacterBody2D = %player
+@onready var dialogueManager: Node = %dialogueManager
 
 func initialize():
 	##saves the current scene file path in the game data file so that if the game is quit, the next time the game can be started from here
@@ -22,6 +29,10 @@ func initialize():
 	resourceManager.loadData()
 	player.position = resourceManager.gameData.player.position
 	player.lastDirection = resourceManager.gameData.player.direction
+	#connects the signal
+	connect("_performBlink", performBlink)
+	#connects the signal
+	connect("_startConversation", startConversation)
 	#connects the signal
 	connect("_sceneEnded", sceneEnded)
 	#connects the signal
@@ -53,3 +64,13 @@ func getQuestDetails():
 #function for _sceneEnded signal
 func sceneEnded():
 	get_tree().change_scene_to_file(nextScene)
+
+#function for _startConversation signal
+func startConversation():
+	if not dialogueRunning:
+		dialogueManager.emit_signal("_initializeDialogueSystem")
+		dialogueRunning = true
+
+#function for _performBlink signal
+func performBlink():
+	transitioner.emit_signal("_blink")

@@ -1,6 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dy6aconnsl6sr"]
+[gd_scene load_steps=13 format=3 uid="uid://dy6aconnsl6sr"]
 
 [ext_resource type="PackedScene" uid="uid://cg2kjqpuca4c6" path="res://scenes/utility/hallRoom.tscn" id="1_uq8io"]
+[ext_resource type="PackedScene" uid="uid://dtsq4pxmnsu3s" path="res://scenes/utility/dialogueManager.tscn" id="2_07h5u"]
+[ext_resource type="PackedScene" uid="uid://blv4yr8e31r0" path="res://scenes/utility/dialogueBox2.tscn" id="2_hf460"]
 [ext_resource type="PackedScene" uid="uid://co2475gp7n187" path="res://scenes/utility/teleporter.tscn" id="2_jwlql"]
 [ext_resource type="Script" path="res://scripts/gameHandlers/hallRoomGameManager.gd" id="2_ro75r"]
 [ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="4_r0hmn"]
@@ -19,6 +21,13 @@ size = Vector2(19.5, 18)
 y_sort_enabled = true
 
 [node name="hall_room" parent="." instance=ExtResource("1_uq8io")]
+
+[node name="dialogueBox" parent="." instance=ExtResource("2_hf460")]
+unique_name_in_owner = true
+
+[node name="dialogueManager" parent="." instance=ExtResource("2_07h5u")]
+unique_name_in_owner = true
+dialogueFileLoc = "res://dialogues/hall.txt"
 
 [node name="gameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -40,7 +49,7 @@ unique_name_in_owner = true
 
 [node name="player" parent="." instance=ExtResource("5_xuice")]
 unique_name_in_owner = true
-position = Vector2(908, 466)
+position = Vector2(232, 460)
 
 [node name="ui" parent="." instance=ExtResource("6_lyo4s")]
 
@@ -59,6 +68,7 @@ position = Vector2(3, -24)
 texture = ExtResource("7_504al")
 
 [node name="mother" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
 y_sort_enabled = true
 position = Vector2(231, 488)
 collision_layer = 2
