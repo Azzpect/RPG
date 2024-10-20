@@ -2,7 +2,7 @@ extends GameManager
 
 func _ready() -> void:
 	initialize()
-	assignQuest("Talk to father in hall room (Press F to interact with the npc")
+	assignQuest(GameData.questsDict.a1)
 
 
 func _on_telepoter_body_entered(body: Node2D) -> void:

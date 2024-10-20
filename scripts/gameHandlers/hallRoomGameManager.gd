@@ -3,7 +3,7 @@ extends GameManager
 
 func _ready() -> void:
 	initialize()
-	assignQuest("return to room")
+	assignQuest(GameData.questsDict.a2)
 
 
 func _on_telepoter_3_body_entered(body: Node2D) -> void:

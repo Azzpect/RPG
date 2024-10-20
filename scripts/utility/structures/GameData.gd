@@ -5,11 +5,18 @@ var scene: String = ""
 var player: CharacterData = CharacterData.new(Vector2.ZERO, Vector2.ZERO)
 var quest: String = "No quest available"
 
+
 static var gameDataStructure = [
 	"scene",
 	"player",
 	"quest"
 ]
+
+#Quest Dictionary
+static var questsDict = {
+	"a1": "Talk to father in hall room (Press F to interact with the NPC)",
+	"a2": "Return to room"
+}
 
 static var bufferedData: GameData
 
