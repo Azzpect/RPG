@@ -8,6 +8,7 @@ script/source = "extends Area2D
 size = Vector2(8.5, 18)
 
 [node name="telepoter" type="Area2D"]
+collision_mask = 4
 script = SubResource("GDScript_lwj76")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

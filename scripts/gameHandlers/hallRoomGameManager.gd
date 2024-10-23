@@ -1,9 +1,28 @@
 extends GameManager
 
+@onready var mother = %mother
 
 func _ready() -> void:
 	initialize()
-	assignQuest("return to room")
+	# assignQuest("return to room")
+	dialogueManager.emit_signal("_readDialogueFile")
+	await _performBlink
+	player.lastDirection = Vector2(0, 1)
+	player.position.x = 230
+	player.position.y = 515
+	player.get_child(0).disabled = true
+	%mother.position.x = 218
+	%mother.position.y = 345
+	%mother/Sprite2D.texture = load("res://Assets/characters/mother_back.png")
+	%mother/CollisionShape2D.disabled = true
+	await dialogueManager._dialougeCompleted
+	emit_signal("_performBlink")
+	player.position.y = 460
+	player.get_child(0).disabled = false
+	player.speed = 70
+	%mother.position.x = 231
+	%mother.position.y = 488
+	%mother/Sprite2D.texture = load("res://Assets/characters/mother_front.png")
 
 
 func _on_telepoter_3_body_entered(body: Node2D) -> void:

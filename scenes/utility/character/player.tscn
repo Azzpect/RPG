@@ -238,6 +238,8 @@ node_connections = [&"output", 0, &"playerStates"]
 
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_rrlnj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -262,3 +264,8 @@ advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/playerStates/playerIdle/blend_position = Vector2(0, 0)
 parameters/playerStates/playerWalk/blend_position = Vector2(0, 0)
+
+[node name="los" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(20, 0)
+collision_mask = 2

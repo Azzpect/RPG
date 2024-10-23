@@ -1,0 +1,35 @@
+*sid stands at the entrance of the hall;n
+
+Sid: Look who's up here to have a little family time today.;n
+Father: It's not like I had a choice.;n
+Mother: Well technically you did. Just had to send the Christmas cards to mom and dad like I asked;n
+Mother: But you chose not to.;n
+Father: It was not intentional. I am sorry I forgot.;n
+Mother: You also don't get to go to your lab today.;n
+Father: Whaaat!?;n
+Mother: You heard me.;n
+Father: :(;n
+Father: Your mother is in a bad mood today kiddo. Better not do anything to ruin it anymore.;n
+Sid: (Huh, the demon dream kind of makes sense now doesn't it.);n
+Sid: Hmmm. What's for lunch mom?;n
+Mother: --------;n
+Sid: OMG! Thank you mother!;n	
+Mother: Wash your hands and sit down.;n
+[::];n
+*mother goes to bring food;n
+
+*sid comes back after washing hands;n
+Father: You know about the game I've been working on?;n
+Sid: ---?;n
+Father: Yes ---. It's almost done.;n
+Sid: Can I test it?;n
+Father: Not until it's done.;n
+Sid: Oh come on! What's the harm in playing an unfinished game? ;n
+Sid: Bugs? I don't mind them. In fact, I love finding them.;n
+Father: It's a lot more than that.;n
+Father: Plus, I don't have access to my lab today.;n
+Father: So either way, you won't be able to play it today.;n
+Sid: :/;n
+
+*mother comes back with food and family eats;n
+*after lunch dexter goes back to his room;n

@@ -20,6 +20,9 @@ signal _dialougeCompleted
 #the dialogue box node
 @onready var dialogueBox: Node2D = %dialogueBox
 
+#the game manager
+@onready var gameManager: Node = %gameManager
+
 #the dialogue file path
 @export var dialogueFileLoc: String = ""
 
@@ -73,6 +76,11 @@ func showNextLine():
 	if(i == dialogues.size()):
 		emit_signal("_dialougeCompleted")
 		return
+	if "blink" in dialogues[i].keys():
+		gameManager.emit_signal("_performBlink")
+		i += 1
+		emit_signal("_lineCompleted")
+		return
 	dialogueBox.emit_signal("_showDialogue", dialogues[i]["name"], dialogues[i]["dialogue"])
 	isLineFinished = false
 	isSpaceClicked = false
@@ -84,7 +92,16 @@ func readDialogueFile():
 		print("wrong file path")
 		return
 	var file = FileAccess.open(dialogueFileLoc, FileAccess.READ)
-	dialogues = JSON.parse_string(file.get_as_text())
+	var fileData = GameData.decrypt(file.get_as_text())
+	for line in fileData.split(";n"):
+		line = line.trim_prefix(" ").trim_suffix(" ")
+		if line == "" or line.begins_with("*"):
+			continue
+		if line == "[::]":
+			dialogues.append({"blink": true})
+			continue
+		var dialogue = line.split(": ")
+		dialogues.append({"name": dialogue[0], "dialogue": dialogue[1]})
 
 #this function is called when the _dialougeCompleted signal is emitted. this function sets the dialouge index to 0 and emits the _hideDialogueBox signal of the dialogue box
 func dialogueCompleted():

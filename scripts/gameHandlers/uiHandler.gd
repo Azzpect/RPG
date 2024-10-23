@@ -4,6 +4,7 @@ extends Control
 @onready var label: Label = %questBox/MarginContainer/Label
 @onready var gameManager: Node = %gameManager
 
+
 func _on_button_pressed() -> void:
 	get_tree().quit()
 
