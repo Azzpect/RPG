@@ -21,6 +21,9 @@ static func initialize(dict: Dictionary):
 	bufferedData = GameData.new()
 	if dict.is_empty():
 		return
+	if dict.keys().size() != gameDataStructure.size():
+		print("not equal")
+		return
 	for key in gameDataStructure:
 		if key == "player":
 			bufferedData.set(key, CharacterData.playerDataFromDict(dict[key]))
@@ -149,9 +152,11 @@ static func loadData():
 		var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
 		file.store_string(encrypt(JSON.stringify(GameData.convertToDict())))
 		file.close()
+		return
 		
 	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
 	var data = decrypt(file.get_as_text())
+	print(data)
 	var parsedData = JSON.parse_string(data)
 	GameData.initialize(parsedData)
 	file.close()
