@@ -1,4 +1,4 @@
-*sid stands at the entrance of the hall
+*sid stands at the entrance of the hall;n
 
 Sid: Look who's up here to have a little family time today.;n
 Father: It's not like I had a choice.;n
@@ -16,7 +16,7 @@ Mother: --------;n
 Sid: OMG! Thank you mother!;n	
 Mother: Wash your hands and sit down.;n
 [::];n
-*mother goes to bring food
+*mother goes to bring food;n
 
 *sid comes back after washing hands;n
 Father: You know about the game I've been working on?;n
@@ -31,5 +31,5 @@ Father: Plus, I don't have access to my lab today.;n
 Father: So either way, you won't be able to play it today.;n
 Sid: :/;n
 
-*mother comes back with food and family eats
-*after lunch dexter goes back to his room
+*mother comes back with food and family eats;n
+*after lunch dexter goes back to his room;n

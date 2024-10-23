@@ -22,7 +22,6 @@ static func initialize(dict: Dictionary):
 	if dict.is_empty():
 		return
 	if dict.keys().size() != gameDataStructure.size():
-		print("not equal")
 		return
 	for key in dict.keys():
 		if not key in gameDataStructure:
@@ -160,7 +159,6 @@ static func loadData():
 		
 	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
 	var data = decrypt(file.get_as_text())
-	print(data)
 	var parsedData = JSON.parse_string(data)
 	GameData.initialize(parsedData)
 	file.close()

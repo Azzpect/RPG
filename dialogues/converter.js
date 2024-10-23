@@ -51,5 +51,5 @@ function encrypt(filePath = "", fileName = "") {
     fs.writeFileSync(`${fileName}.crk`, encryptedData)
 }
 
-encrypt("./afa.txt", "afa")
+encrypt("./hall.txt", "hall")
 
