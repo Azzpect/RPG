@@ -24,6 +24,10 @@ static func initialize(dict: Dictionary):
 	if dict.keys().size() != gameDataStructure.size():
 		print("not equal")
 		return
+	for key in dict.keys():
+		if not key in gameDataStructure:
+			return
+		
 	for key in gameDataStructure:
 		if key == "player":
 			bufferedData.set(key, CharacterData.playerDataFromDict(dict[key]))
