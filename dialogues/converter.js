@@ -41,15 +41,15 @@ function convertToHex(data = "") {
 
 function encrypt(filePath = "", fileName = "") {
     let fileData = fs.readFileSync(filePath, "utf-8")
+    let encryptedData = ""
     for (const line of fileData.split("\n")) {
-        let encryptedData = ""
         let hexData = convertToHex(line)
         for(let i = 0; i < hexData.length; i++) {
             encryptedData += String.fromCharCode(hexData.charCodeAt(i) + 130)
         }
-        fs.appendFileSync(`${fileName}.crk`, encryptedData)
     }
+    fs.writeFileSync(`${fileName}.crk`, encryptedData)
 }
 
-encrypt("./dream2.txt", "dream2")
+encrypt("./afa.txt", "afa")
 

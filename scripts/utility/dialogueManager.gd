@@ -93,7 +93,7 @@ func readDialogueFile():
 		return
 	var file = FileAccess.open(dialogueFileLoc, FileAccess.READ)
 	var fileData = GameData.decrypt(file.get_as_text())
-	for line in fileData.split("\r"):
+	for line in fileData.split(";n"):
 		line = line.trim_prefix(" ").trim_suffix(" ")
 		if line == "" or line.begins_with("*"):
 			continue
