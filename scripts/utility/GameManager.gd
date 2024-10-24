@@ -20,7 +20,8 @@ var dialogueRunning = false
 #the transitioner node that plays the fade animation for scene loading and ending
 @onready var transitioner: Node2D = %transitioner
 @onready var player: CharacterBody2D = %player
-@onready var dialogueManager: Node = %dialogueManager
+@onready var dialogueBox: Node2D = %dialogueBox
+
 
 func initialize():
 	##saves the current scene file path in the game data file so that if the game is quit, the next time the game can be started from here
@@ -63,10 +64,31 @@ func getQuestDetails():
 func sceneEnded():
 	get_tree().change_scene_to_file(nextScene)
 
+
+func readDialogueFile(dialogueFileLoc: String):
+	if !FileAccess.file_exists(dialogueFileLoc):
+		print("wrong file path")
+		return
+	var dialogueFile = load(dialogueFileLoc).new()
+	var fileData = dialogueFile.sceneDialogues
+	for key in fileData:
+		for dialogue in fileData[key]:
+			var dialogueObj = []
+			for line in dialogue.split("\n"):
+				line = line.strip_edges()
+				if line == "" or line.begins_with("*"):
+					continue
+				if line == "[::]":
+					dialogueObj.append({"blink": true})
+					continue
+				line = line.split(": ")
+				dialogueObj.append({"name": line[0], "dialogue": line[1]})
+			DialogueData.update(key, dialogueObj)
+
 #function for _startConversation signal
-func startConversation():
+func startConversation(_name):
 	if not dialogueRunning:
-		dialogueManager.emit_signal("_initializeDialogueSystem")
+		dialogueBox.emit_signal("_initializeDialogueBox", _name)
 		dialogueRunning = true
 
 #function for _performBlink signal

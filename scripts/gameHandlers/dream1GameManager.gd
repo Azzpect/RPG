@@ -4,20 +4,22 @@ extends Node
 signal _sceneEnded
 
 #dialogue manager of the current scene
-@onready var dialogueManager: Node = %dialogueManager
+var gameManager = GameManager.new()
 
 #timer to create any latency
 @onready var timer: Timer = $Timer
 
 #the transitioner node that plays the fade animation for scene loading and ending
 @onready var transitioner: Node2D = %transitioner
+@onready var dialogueBox: Node2D = %dialogueBox
 
 #next scene file path
 var nextScene: String = "res://scenes/Cutscenes/dream_2.tscn"
 
 
 func _ready():
-	
+
+
 	#connects the signal
 	connect("_sceneEnded", sceneEnded)
 
@@ -27,22 +29,17 @@ func _ready():
 
 
 	#emits the signal so that the dialogue manager can read the dialogue file
-	dialogueManager.emit_signal("_readDialogueFile")
+	gameManager.readDialogueFile("res://dll/dream.gd")
 
 
 	#starts a timer and waits for it so that the dialogue manager can finish reading the file
 	timer.start()
 	await timer.timeout
 
-	#signals the dialogue manager to start the cutscene dialogue sequence
-	dialogueManager.emit_signal("_initializeDialogueSystem")
-	#waits until the dialogue manager signals the end of the dialogue
-	await dialogueManager._dialougeCompleted
-
-
-	#performs the end scene sequence
-	transitioner.emit_signal("_endScene")
+	dialogueBox.emit_signal("_initializeDialogueBox", "cutscene1")
+	
 
 #function for _sceneEnded signal
 func sceneEnded():
+	transitioner.emit_signal("_endScene")
 	get_tree().change_scene_to_file(nextScene)

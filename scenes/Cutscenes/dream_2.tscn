@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://blv4yr8e31r0" path="res://scenes/utility/dialogueBox2.tscn" id="2_84ybf"]
 [ext_resource type="PackedScene" uid="uid://dtsq4pxmnsu3s" path="res://scenes/utility/dialogueManager.tscn" id="3_yv1x8"]
 [ext_resource type="Script" path="res://scripts/gameHandlers/dream2GameManager.gd" id="4_61l0m"]
-[ext_resource type="Texture2D" uid="uid://cvdivo4knnsqj" path="res://Assets/characters/mom_side.png" id="5_tjgq4"]
-[ext_resource type="Texture2D" uid="uid://6s3ai0xjpu5b" path="res://Assets/characters/player/player.png" id="6_kg3l3"]
+[ext_resource type="Texture2D" uid="uid://gy5wnaq1cllg" path="res://Assets/characters/mom_side.png" id="5_tjgq4"]
+[ext_resource type="Texture2D" uid="uid://ipblul7kmjvx" path="res://Assets/characters/player/player.png" id="6_kg3l3"]
 [ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="7_osls5"]
 
 [node name="dream_2" type="Node2D"]
@@ -17,7 +17,7 @@ unique_name_in_owner = true
 
 [node name="dialogueManager" parent="." instance=ExtResource("3_yv1x8")]
 unique_name_in_owner = true
-dialogueFileLoc = "res://dialogues/dream2.crk"
+script = null
 
 [node name="gameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -37,5 +37,4 @@ texture = ExtResource("6_kg3l3")
 
 [node name="transitioner" parent="." instance=ExtResource("7_osls5")]
 unique_name_in_owner = true
-visible = false
 position = Vector2(5, -11)

@@ -5,7 +5,7 @@ extends GameManager
 func _ready() -> void:
 	initialize()
 	# assignQuest("return to room")
-	dialogueManager.emit_signal("_readDialogueFile")
+	readDialogueFile("res://dll/hall.gd")
 	await _performBlink
 	player.lastDirection = Vector2(0, 1)
 	player.position.x = 230
@@ -15,7 +15,7 @@ func _ready() -> void:
 	%mother.position.y = 345
 	%mother/Sprite2D.texture = load("res://Assets/characters/mother_back.png")
 	%mother/CollisionShape2D.disabled = true
-	await dialogueManager._dialougeCompleted
+	await dialogueBox._dialogueCompleted
 	emit_signal("_performBlink")
 	player.position.y = 460
 	player.get_child(0).disabled = false

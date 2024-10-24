@@ -1,28 +1,28 @@
 extends Node
 
-# this signal is used by the transitioner to tell this game manager that the scene transition animation is completed so the game manager can now load the next scene
-signal _sceneEnded
 
+signal _performBlink
 
 #dialogue manager of the current scene
-@onready var dialogueManager: Node = %dialogueManager
+var gameManager = GameManager.new()
 
 #timer to create any latency
 @onready var timer: Timer = $Timer
 
 #the transitioner node that plays the fade animation for scene loading and ending
 @onready var transitioner: Node2D = %transitioner
-
-#the mother sprite node
-@onready var mother: Sprite2D = %mother
+@onready var dialogueBox: Node2D = %dialogueBox
+@onready var mother = %mother
 
 #next scene file path
 var nextScene: String = "res://scenes/gameScenes/playerRoomScene.tscn"
 
+
 func _ready():
 	
 	#connects the signal
-	connect("_sceneEnded", sceneEnded)
+	connect("_performBlink", performBlink)
+
 
 
 	#saves the current scene file path in the game data file so that if the game is quit, the next time the game can be started from here
@@ -30,36 +30,24 @@ func _ready():
 
 
 	#emits the signal so that the dialogue manager can read the dialogue file
-	dialogueManager.emit_signal("_readDialogueFile")
+	gameManager.readDialogueFile("res://dll/dream.gd")
 
 
 	#starts a timer and waits for it so that the dialogue manager can finish reading the file
 	timer.start()
 	await timer.timeout
 
-	#signals the dialogue manager to start the cutscene dialogue sequence
-	dialogueManager.emit_signal("_initializeDialogueSystem")
-	#waits until the dialogue manager signals the end of the dialogue
-	await dialogueManager._dialougeCompleted
-
-
-	#performs the end scene sequence
-	transitioner.emit_signal("_endScene")
-
-
-
-func _process(delta: float) -> void:
+	dialogueBox.emit_signal("_initializeDialogueBox", "cutscene2")
 	
-	#checks if the dialogue manager reached the 5 the dialogue. if it does then it removes the mother and performs a blink animation with help of the transitioner node
-	if dialogueManager.i == 5 and is_instance_valid(mother):
-		transitioner.emit_signal("_blink")
-		mother.queue_free()
+	await _performBlink
+	mother.queue_free()
 
-
-
-#function for _sceneEnded signal
-func sceneEnded():
-	GameData.save({"scene":nextScene, "player": {
-		"position": Vector2(418, 338),
-		"direction": Vector2(0, -1)}})
+	await dialogueBox._dialogueCompleted
+	transitioner.emit_signal("_endScene")
+	GameData.save({"scene": nextScene, "player": {"position": {"x": 418, "y": 338}, "direction": {"x": 0, "y": -1}}})
 	get_tree().change_scene_to_file(nextScene)
+
+
+#function for _performBlink signal
+func performBlink():
+	transitioner.emit_signal("_blink")
