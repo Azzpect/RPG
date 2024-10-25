@@ -25,11 +25,6 @@ y_sort_enabled = true
 [node name="dialogueBox" parent="." instance=ExtResource("2_hf460")]
 unique_name_in_owner = true
 
-[node name="gameManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("2_ro75r")
-dialogueFileLoc = "res://dll/hall.gd"
-
 [node name="telepoter" parent="." instance=ExtResource("2_jwlql")]
 position = Vector2(896, 375)
 rotation = 1.5708
@@ -86,6 +81,11 @@ shape = SubResource("RectangleShape2D_7twk1")
 
 [node name="Sprite2D" type="Sprite2D" parent="npcHolder/mother"]
 texture = ExtResource("8_ii8pm")
+
+[node name="gameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_ro75r")
+dialogueFileLoc = "res://dll/hall.gd"
 
 [connection signal="body_entered" from="telepoter" to="gameManager" method="_on_telepoter_body_entered"]
 [connection signal="body_entered" from="telepoter3" to="gameManager" method="_on_telepoter_3_body_entered"]

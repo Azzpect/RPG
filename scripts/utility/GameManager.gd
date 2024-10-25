@@ -12,12 +12,15 @@ signal _performBlink
 
 signal _endConversation
 
+signal _performCommand
+
 @export var isSceneEnded = false
 @export var dialogueFileLoc = ""
 
 var nextScene := ""
 var currentScene := ""
 var interactionRunning = false
+var commandData = {}
 
 
 #the transitioner node that plays the fade animation for scene loading and ending
@@ -27,7 +30,6 @@ var interactionRunning = false
 @onready var npcHolder = %npcHolder
 
 func initialize():
-	
 	##saves the current scene file path in the game data file so that if the game is quit, the next time the game can be started from here
 	#GameData.save(get_tree().current_scene.scene_file_path)
 	GameData.loadData()
@@ -35,6 +37,8 @@ func initialize():
 	player.lastDirection = GameData.bufferedData.player.direction
 	#connects the signal
 	connect("_performBlink", performBlink)
+	#connects the signal
+	connect("_performCommand", performCommand)
 	#connects the signal
 	connect("_startConversation", startConversation)
 	#connects the signal
@@ -89,9 +93,55 @@ func readDialogueFile(dialogueFileLoc: String):
 				if line == "[::]":
 					dialogueObj.append({"blink": true})
 					continue
+				if line.begins_with("/"):
+					if dialogueObj[-1].keys()[0] == "command":
+						dialogueObj[-1]["command"].append(line.substr(1))
+						continue
+					dialogueObj.append({"command": [line.substr(1)]})
+					continue
 				line = line.split(": ")
 				dialogueObj.append({"name": line[0], "dialogue": line[1]})
 			DialogueData.update(key, dialogueObj)
+
+func performCommand(commands: Array):
+	for command in commands:
+		var commandParts = command.split(" ")
+		if commandParts[0] == "get":
+			if commandParts[1] in commandData.keys():
+				return
+			commandData[commandParts[1]] = getNode("%"+commandParts[1])
+		elif commandParts[0] == "set":
+			var value = getValue(commandParts[3])
+			commandData[commandParts[1]].set(commandParts[2], value)
+
+func getNode(elementStruct: String):
+	if "." in elementStruct:
+		var temp = elementStruct.split(".")
+		var element = null
+		for e in temp:
+			if element != null:
+				element = element.get_child(int(e))
+				continue
+			element = get_node(e)
+		return element
+	return get_node(elementStruct)
+
+func getValue(property: String):
+	var value = null
+	if "," in property:
+		var temp = property.split(",")
+		return Vector2(int(temp[0]), int(temp[1]))
+	if "load(" in property:
+		var loc = property.split("(")[1].split(")")[0]
+		return load(loc)
+	if property == "true":
+		return true
+	if property == "false":
+		return false
+	if property.is_valid_int():
+		return int(property)
+	return property
+
 
 #function for _startConversation signal
 func startConversation(entity):
@@ -108,6 +158,7 @@ func startConversation(entity):
 func endConversation():
 	player.speed = 70
 	interactionRunning = false
+	commandData = {}
 
 #function for _performBlink signal
 func performBlink():

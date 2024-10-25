@@ -11,9 +11,9 @@ static var storyQuests = {
 		"description": "Go to your bed and wait for night",
 		"type": "StoryQuest"
 	},
-    "talktoAi": {
-        
-    }
+	"talktoAi": {
+		
+	}
 }
 
 static func assignQuest():

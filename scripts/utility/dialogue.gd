@@ -86,6 +86,14 @@ func getNextLine():
 	if "blink" in currentDialogue[i].keys():
 		gameManager.emit_signal("_performBlink")
 		i += 1
+		if "command" in currentDialogue[i].keys():
+			gameManager.emit_signal("_performCommand", currentDialogue[i]["command"])
+			i += 1
+		if(i == currentDialogue.size()):
+			hideDialogueBox()
+			emit_signal("_dialogueCompleted")
+			i = 0
+			return
 		getNextLine()
 		return
 	showDialogue(currentDialogue[i]["name"], currentDialogue[i]["dialogue"])
