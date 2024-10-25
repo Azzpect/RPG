@@ -17,8 +17,8 @@ signal _performCommand
 @export var isSceneEnded = false
 @export var dialogueFileLoc = ""
 
-var nextScene := ""
-var currentScene := ""
+var nextScene = ""
+var currentScene = ""
 var interactionRunning = false
 var commandData = {}
 
@@ -33,8 +33,9 @@ func initialize():
 	##saves the current scene file path in the game data file so that if the game is quit, the next time the game can be started from here
 	#GameData.save(get_tree().current_scene.scene_file_path)
 	GameData.loadData()
-	player.position = GameData.bufferedData.player.position
-	player.lastDirection = GameData.bufferedData.player.direction
+	if player != null:
+		player.position = GameData.bufferedData.player.position
+		player.lastDirection = GameData.bufferedData.player.direction
 	#connects the signal
 	connect("_performBlink", performBlink)
 	#connects the signal
@@ -49,6 +50,7 @@ func initialize():
 	connect("_endConversation", endConversation)
 	currentScene = get_tree().current_scene.scene_file_path
 	readDialogueFile(dialogueFileLoc)
+
 
 func savePlayerData():
 	GameData.save({"player": CharacterData.new(player.position, player.lastDirection)})	
@@ -113,6 +115,8 @@ func performCommand(commands: Array):
 		elif commandParts[0] == "set":
 			var value = getValue(commandParts[3])
 			commandData[commandParts[1]].set(commandParts[2], value)
+		elif commandParts[0] == "destroy":
+			getNode("%"+commandParts[1]).queue_free()
 
 func getNode(elementStruct: String):
 	if "." in elementStruct:
@@ -156,7 +160,8 @@ func startConversation(entity):
 		interactionRunning = true
 
 func endConversation():
-	player.speed = 70
+	if player != null:
+		player.speed = 70
 	interactionRunning = false
 	commandData = {}
 

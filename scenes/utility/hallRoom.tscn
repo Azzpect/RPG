@@ -40,3 +40,7 @@ offset = Vector2(1.20483, 20)
 [node name="teleporter3" type="Sprite2D" parent="."]
 position = Vector2(897, 355)
 texture = ExtResource("4_inuqu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(547, 400)
+zoom = Vector2(2, 2)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dy6aconnsl6sr"]
 
 [ext_resource type="PackedScene" uid="uid://cg2kjqpuca4c6" path="res://scenes/utility/hallRoom.tscn" id="1_uq8io"]
-[ext_resource type="PackedScene" uid="uid://blv4yr8e31r0" path="res://scenes/utility/dialogueBox2.tscn" id="2_hf460"]
+[ext_resource type="PackedScene" uid="uid://qv0b2xe4skuv" path="res://scenes/utility/dialogueBox2.tscn" id="2_hf460"]
 [ext_resource type="PackedScene" uid="uid://co2475gp7n187" path="res://scenes/utility/teleporter.tscn" id="2_jwlql"]
 [ext_resource type="Script" path="res://scripts/gameHandlers/hallRoomGameManager.gd" id="2_ro75r"]
 [ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="4_r0hmn"]
@@ -24,6 +24,8 @@ y_sort_enabled = true
 
 [node name="dialogueBox" parent="." instance=ExtResource("2_hf460")]
 unique_name_in_owner = true
+position = Vector2(79, 358)
+scale = Vector2(0.5, 0.5)
 
 [node name="telepoter" parent="." instance=ExtResource("2_jwlql")]
 position = Vector2(896, 375)

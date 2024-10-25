@@ -78,6 +78,8 @@ z_index = 20
 script = ExtResource("1_motu3")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-24.5544, 17.2016)
+scale = Vector2(1.52594, 1.48895)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-37, -27, 1332, -19, 1332, 739, -75, 742)
 

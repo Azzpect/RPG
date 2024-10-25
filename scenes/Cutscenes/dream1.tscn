@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6nqtwjmhxyix"]
+
+[ext_resource type="Texture2D" uid="uid://vv75mdx1c7dj" path="res://Assets/cutscene/castleDemon.png" id="1_w0e5s"]
+[ext_resource type="PackedScene" uid="uid://c2q4v0ek7amap" path="res://scenes/utility/dialogueBox.tscn" id="5_0e8at"]
+[ext_resource type="Script" path="res://scripts/gameHandlers/dream1GameManager.gd" id="6_glo7i"]
+[ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="8_ts5ub"]
+
+[node name="dream1" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(959, 539)
+texture = ExtResource("1_w0e5s")
+
+[node name="dialogueBox" parent="." instance=ExtResource("5_0e8at")]
+unique_name_in_owner = true
+
+[node name="gameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_glo7i")
+dialogueFileLoc = "res://dll/dream1.gd"
+
+[node name="transitioner" parent="." instance=ExtResource("8_ts5ub")]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="."]

@@ -7,18 +7,18 @@
 [node name="continue" type="Button" parent="."]
 unique_name_in_owner = true
 visible = false
-offset_left = 519.0
-offset_top = 262.0
-offset_right = 737.0
-offset_bottom = 335.0
+offset_left = 861.0
+offset_top = 442.0
+offset_right = 1079.0
+offset_bottom = 515.0
 text = "Continue"
 
 [node name="start" type="Button" parent="."]
 unique_name_in_owner = true
-offset_left = 519.0
-offset_top = 354.0
-offset_right = 737.0
-offset_bottom = 427.0
+offset_left = 861.0
+offset_top = 534.0
+offset_right = 1079.0
+offset_bottom = 607.0
 text = "Start Game"
 
 [node name="gameManager" type="Node" parent="."]

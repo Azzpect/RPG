@@ -20,7 +20,7 @@
             [::]
             /get player
             /set player lastDirection 0,1
-            /set player position 230,515
+            /set player position 230,518
             /get player.0
             /set player.0 disabled true
             /get mother

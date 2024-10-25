@@ -50,7 +50,7 @@ func _input(event):
 	if not isLineFinished:
 		return
 	#if the space button is clicked then the _isSpaceClicked signal is emitted 
-	if event.is_action_pressed("line_continue"):
+	if event.is_action_pressed("lineContinue"):
 		emit_signal("_isSpaceClicked")
 
 #this function is called when the _initializeDialogueBox signal is emitted. This functions makes the dialogue box visible in the scene and sets the dialogueRunning to true so that the _showDialogue signal can work

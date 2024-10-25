@@ -8,6 +8,9 @@
 y_sort_enabled = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = -1
+position = Vector2(16.7592, 15.6242)
+scale = Vector2(1.50785, 1.53876)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-33, -29, 1304, -18, 1304, 724, -17, 732)
 
@@ -34,3 +37,7 @@ texture = ExtResource("5_htitq")
 position = Vector2(705, 461)
 texture = ExtResource("3_q642r")
 offset = Vector2(1, 20)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 353)
+zoom = Vector2(2, 2)
