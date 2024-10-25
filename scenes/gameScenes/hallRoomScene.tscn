@@ -7,9 +7,9 @@
 [ext_resource type="Script" path="res://scripts/gameHandlers/hallRoomGameManager.gd" id="2_ro75r"]
 [ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="4_r0hmn"]
 [ext_resource type="PackedScene" uid="uid://b0k0i76iq8ie5" path="res://scenes/utility/character/player.tscn" id="5_xuice"]
-[ext_resource type="PackedScene" uid="uid://dxa5h0fxscjqa" path="res://scenes/utility/ui.tscn" id="6_lyo4s"]
-[ext_resource type="Texture2D" uid="uid://4cwfb1dsjywe" path="res://Assets/characters/father.png" id="7_504al"]
-[ext_resource type="Texture2D" uid="uid://dlkma1ed80hty" path="res://Assets/characters/mother_front.png" id="8_ii8pm"]
+[ext_resource type="PackedScene" path="res://scenes/utility/ui.tscn" id="6_lyo4s"]
+[ext_resource type="Texture2D" uid="uid://cqkxg8ek04pov" path="res://Assets/characters/father.png" id="7_504al"]
+[ext_resource type="Texture2D" uid="uid://bokqbb7wh6vf7" path="res://Assets/characters/mother_front.png" id="8_ii8pm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fkyx"]
 size = Vector2(22, 18.5)

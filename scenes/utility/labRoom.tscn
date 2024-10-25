@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=4 uid="uid://w70ssnwe5sl1"]
 
 [ext_resource type="TileSet" uid="uid://cgy2h0etujai1" path="res://Assets/Tileset/labTile.tres" id="1_nolf2"]
-[ext_resource type="PackedScene" uid="uid://dxa5h0fxscjqa" path="res://scenes/utility/ui.tscn" id="3_3tn2d"]
-[ext_resource type="Texture2D" uid="uid://rkv0dtbx81sc" path="res://Assets/Room/door.png" id="3_o47ga"]
+[ext_resource type="PackedScene" path="res://scenes/utility/ui.tscn" id="3_3tn2d"]
+[ext_resource type="Texture2D" uid="uid://b15gjvury0y8c" path="res://Assets/Room/door.png" id="3_o47ga"]
 
 [node name="labRoom" type="Node2D"]
 y_sort_enabled = true
