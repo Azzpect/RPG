@@ -1,8 +1,5 @@
 extends Node
 
-# this signal is used by the transitioner to tell this game manager that the scene transition animation is completed so the game manager can now load the next scene
-signal _sceneEnded
-
 #dialogue manager of the current scene
 var gameManager = GameManager.new()
 
@@ -20,9 +17,6 @@ var nextScene: String = "res://scenes/Cutscenes/dream_2.tscn"
 func _ready():
 
 
-	#connects the signal
-	connect("_sceneEnded", sceneEnded)
-
 
 	#saves the current scene file path in the game data file so that if the game is quit, the next time the game can be started from here
 	GameData.save({"scene": get_tree().current_scene.scene_file_path})
@@ -39,7 +33,10 @@ func _ready():
 	dialogueBox.emit_signal("_initializeDialogueBox", "cutscene1")
 	
 
-#function for _sceneEnded signal
-func sceneEnded():
+	await dialogueBox._dialogueCompleted
+
+
 	transitioner.emit_signal("_endScene")
 	get_tree().change_scene_to_file(nextScene)
+
+	
