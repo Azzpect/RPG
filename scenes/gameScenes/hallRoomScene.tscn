@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dy6aconnsl6sr"]
+[gd_scene load_steps=13 format=3 uid="uid://dy6aconnsl6sr"]
 
 [ext_resource type="PackedScene" uid="uid://cg2kjqpuca4c6" path="res://scenes/utility/hallRoom.tscn" id="1_uq8io"]
 [ext_resource type="PackedScene" uid="uid://blv4yr8e31r0" path="res://scenes/utility/dialogueBox2.tscn" id="2_hf460"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dxa5h0fxscjqa" path="res://scenes/utility/ui.tscn" id="6_lyo4s"]
 [ext_resource type="Texture2D" uid="uid://cv3t36duy728y" path="res://Assets/characters/father.png" id="7_504al"]
 [ext_resource type="Texture2D" uid="uid://bmdntwyjrku8a" path="res://Assets/characters/mother_front.png" id="8_ii8pm"]
+[ext_resource type="Script" path="res://scripts/utility/NPC.gd" id="8_iucmd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fkyx"]
 size = Vector2(22, 18.5)
@@ -27,6 +28,7 @@ unique_name_in_owner = true
 [node name="gameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_ro75r")
+dialogueFileLoc = "res://dll/hall.gd"
 
 [node name="telepoter" parent="." instance=ExtResource("2_jwlql")]
 position = Vector2(896, 375)
@@ -48,32 +50,41 @@ position = Vector2(232, 460)
 
 [node name="ui" parent="." instance=ExtResource("6_lyo4s")]
 
-[node name="father" type="StaticBody2D" parent="."]
-y_sort_enabled = true
-position = Vector2(256, 515)
-collision_layer = 2
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="father"]
-position = Vector2(6, -29.75)
-shape = SubResource("RectangleShape2D_8fkyx")
-
-[node name="Sprite2D" type="Sprite2D" parent="father"]
-position = Vector2(3, -24)
-texture = ExtResource("7_504al")
-
-[node name="mother" type="StaticBody2D" parent="."]
+[node name="npcHolder" type="Node2D" parent="."]
 unique_name_in_owner = true
 y_sort_enabled = true
-position = Vector2(231, 487)
+position = Vector2(232, 460)
+
+[node name="father" type="CharacterBody2D" parent="npcHolder"]
+unique_name_in_owner = true
+y_sort_enabled = true
+position = Vector2(31, 29)
 collision_layer = 2
 collision_mask = 4
+script = ExtResource("8_iucmd")
+questList = ["quest1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="mother"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="npcHolder/father"]
+shape = SubResource("RectangleShape2D_8fkyx")
+
+[node name="Sprite2D" type="Sprite2D" parent="npcHolder/father"]
+position = Vector2(-3, 3)
+texture = ExtResource("7_504al")
+
+[node name="mother" type="CharacterBody2D" parent="npcHolder"]
+unique_name_in_owner = true
+y_sort_enabled = true
+position = Vector2(-1, 27)
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("8_iucmd")
+questList = ["quest1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="npcHolder/mother"]
 position = Vector2(-0.75, -5)
 shape = SubResource("RectangleShape2D_7twk1")
 
-[node name="Sprite2D" type="Sprite2D" parent="mother"]
+[node name="Sprite2D" type="Sprite2D" parent="npcHolder/mother"]
 texture = ExtResource("8_ii8pm")
 
 [connection signal="body_entered" from="telepoter" to="gameManager" method="_on_telepoter_body_entered"]

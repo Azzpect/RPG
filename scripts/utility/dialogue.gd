@@ -64,6 +64,7 @@ func hideDialogueBox():
 	dialogueRunning = false
 	$MarginContainer/Polygon2D.visible = false
 	animationPlayer.play("dialogue_box_disappear")
+	gameManager.emit_signal("_endConversation")
 
 
 func chooseDialogueSequence(_name):

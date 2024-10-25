@@ -10,20 +10,24 @@ signal _startConversation
 
 signal _performBlink
 
-@export var isSceneEnded = false
+signal _endConversation
 
+@export var isSceneEnded = false
+@export var dialogueFileLoc = ""
 
 var nextScene := ""
 var currentScene := ""
-var dialogueRunning = false
+var interactionRunning = false
+
 
 #the transitioner node that plays the fade animation for scene loading and ending
 @onready var transitioner: Node2D = %transitioner
 @onready var player: CharacterBody2D = %player
 @onready var dialogueBox: Node2D = %dialogueBox
-
+@onready var npcHolder = %npcHolder
 
 func initialize():
+	
 	##saves the current scene file path in the game data file so that if the game is quit, the next time the game can be started from here
 	#GameData.save(get_tree().current_scene.scene_file_path)
 	GameData.loadData()
@@ -37,7 +41,10 @@ func initialize():
 	connect("_sceneEnded", sceneEnded)
 	#connects the signal
 	connect("_savePlayerData", savePlayerData)
+	#connects the signal
+	connect("_endConversation", endConversation)
 	currentScene = get_tree().current_scene.scene_file_path
+	readDialogueFile(dialogueFileLoc)
 
 func savePlayerData():
 	GameData.save({"player": CharacterData.new(player.position, player.lastDirection)})	
@@ -54,11 +61,12 @@ func teleport(scene: String, playerPos: Vector2, playerDirection: Vector2, body:
 
 func assignQuest(questTitle: String):
 	if QuestData.allQuests[questTitle]["status"] == "not assigned":
-		GameData.save({"quest": QuestData.allQuests[questTitle].description})
+		GameData.save({"quest": questTitle})
 		QuestData.allQuests[questTitle]["status"] = "assigned"
 		
 func getQuestDetails():
-	return GameData.bufferedData.quest
+	var questId = GameData.bufferedData.quest
+	return QuestData.allQuests[questId].description
 
 #function for _sceneEnded signal
 func sceneEnded():
@@ -86,11 +94,24 @@ func readDialogueFile(dialogueFileLoc: String):
 			DialogueData.update(key, dialogueObj)
 
 #function for _startConversation signal
-func startConversation(_name):
-	if not dialogueRunning:
-		dialogueBox.emit_signal("_initializeDialogueBox", _name)
-		dialogueRunning = true
+func startConversation(entity):
+	if interactionRunning:
+		return
+	if entity.type == "NPC":
+		if GameData.bufferedData.quest in entity.questList:
+			dialogueBox.emit_signal("_initializeDialogueBox", GameData.bufferedData.quest)
+		else:
+			dialogueBox.emit_signal("_initializeDialogueBox", entity.name)
+		player.speed = 0
+		interactionRunning = true
+
+func endConversation():
+	player.speed = 70
+	interactionRunning = false
 
 #function for _performBlink signal
 func performBlink():
 	transitioner.emit_signal("_blink")
+
+
+	
