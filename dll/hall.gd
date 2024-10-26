@@ -53,20 +53,20 @@
             *after lunch dexter goes back to his room
         "
     ],
-    "father": [
-        "
-            Father: Honey! I Have some important work today.
-            Mother: I already told you no lab for you today.
-            Father: But-
-            Mother: No buts.
-        "
-    ],
-    "mother": [
-        "
-            Father: Honey! I Have some important work today.
-            Mother: I already told you no lab for you today.
-            Father: But-
-            Mother: No buts.
-        "
-    ]
+    # "father": [
+    #     "
+    #         Father: Honey! I Have some important work today.
+    #         Mother: I already told you no lab for you today.
+    #         Father: But-
+    #         Mother: No buts.
+    #     "
+    # ],
+    # "mother": [
+    #     "
+    #         Father: Honey! I Have some important work today.
+    #         Mother: I already told you no lab for you today.
+    #         Father: But-
+    #         Mother: No buts.
+    #     "
+    # ]
 }

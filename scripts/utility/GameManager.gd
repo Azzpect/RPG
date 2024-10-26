@@ -50,6 +50,7 @@ func initialize():
 	connect("_endConversation", endConversation)
 	currentScene = get_tree().current_scene.scene_file_path
 	readDialogueFile(dialogueFileLoc)
+	GameData.save({"scene": currentScene})
 
 
 func savePlayerData():
@@ -64,15 +65,10 @@ func teleport(scene: String, playerPos: Vector2, playerDirection: Vector2, body:
 	nextScene = scene
 	transitioner.emit_signal("_endScene")
 
-
-func assignQuest(questTitle: String):
-	if QuestData.allQuests[questTitle]["status"] == "not assigned":
-		GameData.save({"quest": questTitle})
-		QuestData.allQuests[questTitle]["status"] = "assigned"
 		
 func getQuestDetails():
 	var questId = GameData.bufferedData.quest
-	return QuestData.allQuests[questId].description
+	return {"description": GameData.allQuests[questId]["description"], "npc": GameData.allQuests[questId]["npc"]}
 
 #function for _sceneEnded signal
 func sceneEnded():
@@ -96,7 +92,7 @@ func readDialogueFile(dialogueFileLoc: String):
 					dialogueObj.append({"blink": true})
 					continue
 				if line.begins_with("/"):
-					if dialogueObj[-1].keys()[0] == "command":
+					if dialogueObj.size() > 0 and dialogueObj[-1].keys()[0] == "command":
 						dialogueObj[-1]["command"].append(line.substr(1))
 						continue
 					dialogueObj.append({"command": [line.substr(1)]})
@@ -151,11 +147,8 @@ func getValue(property: String):
 func startConversation(entity):
 	if interactionRunning:
 		return
-	if entity.type == "NPC":
-		if GameData.bufferedData.quest in entity.questList:
-			dialogueBox.emit_signal("_initializeDialogueBox", GameData.bufferedData.quest)
-		else:
-			dialogueBox.emit_signal("_initializeDialogueBox", entity.name)
+	if GameData.bufferedData.quest != "" and getQuestDetails()["npc"] == entity.name:
+		dialogueBox.emit_signal("_initializeDialogueBox", GameData.bufferedData.quest)
 		player.speed = 0
 		interactionRunning = true
 
@@ -164,6 +157,9 @@ func endConversation():
 		player.speed = 70
 	interactionRunning = false
 	commandData = {}
+	if GameData.bufferedData.quest != "":
+		GameData.allQuests[GameData.bufferedData.quest]["status"] = 2
+		GameData.assignQuest()
 
 #function for _performBlink signal
 func performBlink():

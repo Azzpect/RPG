@@ -11,4 +11,4 @@ func _on_button_pressed() -> void:
 
 func _on_quest_pressed() -> void:
 	questBox.visible = !questBox.visible
-	label.text = gameManager.getQuestDetails()
+	label.text = gameManager.getQuestDetails()["description"]

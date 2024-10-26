@@ -16,6 +16,7 @@ func _ready() -> void:
 
 #is called when the start button is pressed. Loads the first cutscene of the game
 func _on_start_pressed() -> void:
+	GameData.reset()
 	get_tree().change_scene_to_file("res://scenes/Cutscenes/dream1.tscn")
 
 #is called when the continue button is pressed. Loads the scene saved in game data file

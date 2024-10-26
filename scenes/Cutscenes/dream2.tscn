@@ -10,6 +10,7 @@
 [node name="dream2" type="Node2D"]
 
 [node name="playerRoom" parent="." instance=ExtResource("1_i2sh8")]
+unique_name_in_owner = true
 
 [node name="dialogueBox" parent="." instance=ExtResource("2_84ybf")]
 unique_name_in_owner = true
@@ -28,11 +29,12 @@ texture = ExtResource("5_tjgq4")
 flip_h = true
 
 [node name="player" type="Sprite2D" parent="."]
-position = Vector2(441, 425)
+position = Vector2(440, 425)
 texture = ExtResource("6_kg3l3")
 
 [node name="transitioner" parent="." instance=ExtResource("7_osls5")]
 unique_name_in_owner = true
+visible = false
 position = Vector2(5, -11)
 
 [node name="Timer" type="Timer" parent="."]

@@ -7,13 +7,15 @@ const SAVE_FILE_PATH = "user://state.crk"
 
 var scene: String = ""
 var player: CharacterData = CharacterData.new(Vector2.ZERO, Vector2.ZERO)
-var quest: String = "No quest available"
+var quest: String = ""
 
 static var gameDataStructure = [
 	"scene",
 	"player",
 	"quest"
 ]
+
+static var allQuests = {}
 
 static var bufferedData: GameData = GameData.new()
 
@@ -32,7 +34,7 @@ static func initialize(dict: Dictionary):
 			bufferedData.set(key, CharacterData.playerDataFromDict(dict[key]))
 			continue
 		bufferedData.set(key, dict[key])
-	return
+	loadQuestData()
 
 static func update(dict: Dictionary):
 	for key in gameDataStructure:
@@ -185,3 +187,31 @@ func display():
 		},
 		"quest": quest
 	})
+
+
+static func loadQuestData():
+	var file = FileAccess.open("res://dll/allQuests.json", FileAccess.READ)
+	allQuests = JSON.parse_string(file.get_as_text())
+
+static func assignQuest():
+	if GameData.bufferedData.quest == "" and allQuests["quest1"]["status"] == 0:
+		GameData.save({"quest": "quest1"})
+		allQuests["quest1"]["status"] = 1
+	elif allQuests[GameData.bufferedData.quest]["status"] == 2:
+		var finishedQuest = allQuests.keys().find(GameData.bufferedData.quest)
+		var nextQuest = allQuests.keys()[finishedQuest+1]
+		allQuests[nextQuest]["status"] = 1
+		GameData.save({"quest": nextQuest})
+	saveQuest()
+
+static func saveQuest():
+	var file = FileAccess.open("res://dll/allQuests.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(allQuests))
+
+static func reset():
+	GameData.save({"scene": "", "player": CharacterData.new(Vector2.ZERO, Vector2.ZERO).convertToDict(), "quest": ""})
+	loadQuestData()
+	for quest in allQuests:
+		allQuests[quest]["status"] = 0
+	saveQuest()
+	
