@@ -118,7 +118,7 @@ script = ExtResource("1_ntx7d")
 
 [node name="npcFace" type="Sprite2D" parent="."]
 z_index = 10
-position = Vector2(213, 309)
+position = Vector2(447, 484)
 scale = Vector2(0.93, 0.93)
 
 [node name="dialogue_box_sprite" type="Sprite2D" parent="."]
