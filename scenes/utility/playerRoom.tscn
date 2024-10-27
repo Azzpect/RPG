@@ -46,7 +46,3 @@ tile_set = ExtResource("1_sv4xc")
 position = Vector2(705, 461)
 texture = ExtResource("3_q642r")
 offset = Vector2(1, 20)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 353)
-zoom = Vector2(2, 2)

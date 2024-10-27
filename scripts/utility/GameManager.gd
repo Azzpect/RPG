@@ -1,8 +1,6 @@
 class_name GameManager
 extends Node
 
-# this signal is used by the transitioner to tell this game manager that the scene transition animation is completed so the game manager can now load the next scene
-signal _sceneEnded
 # this signal is used by other nodes to tell the gamemanager to save the player data
 signal _savePlayerData
 
@@ -21,13 +19,13 @@ var nextScene = ""
 var currentScene = ""
 var interactionRunning = false
 var commandData = {}
+var dialogueObj = {}
 
 
 #the transitioner node that plays the fade animation for scene loading and ending
 @onready var transitioner: Node2D = %transitioner
 @onready var player: CharacterBody2D = %player
 @onready var dialogueBox: Node2D = %dialogueBox
-@onready var npcHolder = %npcHolder
 
 func initialize():
 	##saves the current scene file path in the game data file so that if the game is quit, the next time the game can be started from here
@@ -43,8 +41,6 @@ func initialize():
 	#connects the signal
 	connect("_startConversation", startConversation)
 	#connects the signal
-	connect("_sceneEnded", sceneEnded)
-	#connects the signal
 	connect("_savePlayerData", savePlayerData)
 	#connects the signal
 	connect("_endConversation", endConversation)
@@ -57,22 +53,19 @@ func savePlayerData():
 	GameData.save({"player": CharacterData.new(player.position, player.lastDirection)})	
 
 
-func teleport(scene: String, playerPos: Vector2, playerDirection: Vector2, body: Node2D):
-	if body.name != "player":
+func teleport(scene: String, playerPos: Vector2 = Vector2.ZERO, playerDirection: Vector2 = Vector2.ZERO, body: Node2D = null):
+	if body != null and body.name != "player":
 		return
 	isSceneEnded = true
 	GameData.save({"scene": scene, "player": CharacterData.new(playerPos, playerDirection)})
-	nextScene = scene
 	transitioner.emit_signal("_endScene")
+	get_tree().change_scene_to_file(scene)
 
 		
 func getQuestDetails():
 	var questId = GameData.bufferedData.quest
 	return {"description": GameData.allQuests[questId]["description"], "npc": GameData.allQuests[questId]["npc"]}
 
-#function for _sceneEnded signal
-func sceneEnded():
-	get_tree().change_scene_to_file(nextScene)
 
 
 func readDialogueFile(dialogueFileLoc: String):
@@ -82,24 +75,22 @@ func readDialogueFile(dialogueFileLoc: String):
 	var dialogueFile = load(dialogueFileLoc).new()
 	var fileData = dialogueFile.sceneDialogues
 	for key in fileData:
-		for dialogue in fileData[key]:
-			var dialogueObj = []
-			for line in dialogue.split("\n"):
-				line = line.strip_edges()
-				if line == "" or line.begins_with("*"):
+		dialogueObj[key] = []
+		for line in fileData[key].split("\n"):
+			line = line.strip_edges()
+			if line == "" or line.begins_with("*"):
+				continue
+			if line == "[::]":
+				dialogueObj[key].append({"blink": true})
+				continue
+			if line.begins_with("/"):
+				if dialogueObj[key].size() > 0 and dialogueObj[key][-1].keys()[0] == "command":
+					dialogueObj[key][-1]["command"].append(line.substr(1))
 					continue
-				if line == "[::]":
-					dialogueObj.append({"blink": true})
-					continue
-				if line.begins_with("/"):
-					if dialogueObj.size() > 0 and dialogueObj[-1].keys()[0] == "command":
-						dialogueObj[-1]["command"].append(line.substr(1))
-						continue
-					dialogueObj.append({"command": [line.substr(1)]})
-					continue
-				line = line.split(": ")
-				dialogueObj.append({"name": line[0], "dialogue": line[1]})
-			DialogueData.update(key, dialogueObj)
+				dialogueObj[key].append({"command": [line.substr(1)]})
+				continue
+			line = line.split(": ")
+			dialogueObj[key].append({"name": line[0], "dialogue": line[1]})
 
 func performCommand(commands: Array):
 	for command in commands:
@@ -130,7 +121,7 @@ func getValue(property: String):
 	var value = null
 	if "," in property:
 		var temp = property.split(",")
-		return Vector2(int(temp[0]), int(temp[1]))
+		return Vector2(float(temp[0]), float(temp[1]))
 	if "load(" in property:
 		var loc = property.split("(")[1].split(")")[0]
 		return load(loc)
@@ -138,17 +129,19 @@ func getValue(property: String):
 		return true
 	if property == "false":
 		return false
+	if property.is_valid_float():
+		return float(property)
 	if property.is_valid_int():
 		return int(property)
 	return property
 
 
 #function for _startConversation signal
-func startConversation(entity):
+func startConversation(entity = null):
 	if interactionRunning:
 		return
 	if GameData.bufferedData.quest != "" and getQuestDetails()["npc"] == entity.name:
-		dialogueBox.emit_signal("_initializeDialogueBox", GameData.bufferedData.quest)
+		dialogueBox.emit_signal("_initializeDialogueBox", dialogueObj[GameData.bufferedData.quest])
 		player.speed = 0
 		interactionRunning = true
 

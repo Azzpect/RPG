@@ -3,9 +3,6 @@ extends Node2D
 #signal used by the dialogue manager node to start a dialogue sequence
 signal _initializeDialogueBox
 
-#signal used by the dialogue manager to end a dialogue sequence
-signal _hideDialogueBox
-
 signal _isSpaceClicked
 signal _dialogueCompleted
 
@@ -27,12 +24,10 @@ signal _dialogueCompleted
 #a sprite2D node that contains the entity face
 @onready var face: Sprite2D = $npcFace
 
-#this boolean is used to check if the dialogue box is initialized or not with the _initializeDialogueBox signal if not then the _showDialogue signal won't work
-var dialogueRunning = false
-
-var isLineFinished = false
+var isSpaceClicked = true
 var i = 0
-var currentDialogue = []
+var allDialogues = []
+var commandList = []
 
 #a dictionary for caching entity face sprites
 var face_cache = {}
@@ -43,65 +38,43 @@ func _ready():
 	connect("_isSpaceClicked", spaceClicked)
 	connect("_dialogueCompleted", dialogueCompleted)
 	connect("_initializeDialogueBox", initializeDialogueBox)
-	connect("_hideDialogueBox", hideDialogueBox)
 
 func _input(event):
-	#checks if the current dialogue line finished printing or not
-	if not isLineFinished:
-		return
-	#if the space button is clicked then the _isSpaceClicked signal is emitted 
 	if event.is_action_pressed("lineContinue"):
 		emit_signal("_isSpaceClicked")
 
 #this function is called when the _initializeDialogueBox signal is emitted. This functions makes the dialogue box visible in the scene and sets the dialogueRunning to true so that the _showDialogue signal can work
-func initializeDialogueBox(_name):
+func initializeDialogueBox(dialogues):
 	animationPlayer.play("dialogue_box_appear")
-	dialogueRunning = true
-	chooseDialogueSequence(_name)
+	allDialogues = dialogues
+	emit_signal("_dialogueCompleted")
 
-#this function is called when the _hideDialogueBox signal is emitted. This functions makes the dialogue box invisible and sets the dialogueRunning to false so that the _showDialogue signal won't work until _initializeDialogueBox is emitted again
 func hideDialogueBox():
-	dialogueRunning = false
 	$MarginContainer/Polygon2D.visible = false
 	animationPlayer.play("dialogue_box_disappear")
 	gameManager.emit_signal("_endConversation")
-
-
-func chooseDialogueSequence(_name):
-	var availableDialogues = DialogueData.sceneDialogues[_name]
-	var randIndex = randi() % availableDialogues.size()
-	currentDialogue = availableDialogues[randIndex]
-	showDialogue(currentDialogue[i]["name"], currentDialogue[i]["dialogue"])
-	i += 1
+	
 	
 
 func getNextLine():
-	isLineFinished = true
-	await _isSpaceClicked
-	if(i == currentDialogue.size()):
+	if(allDialogues.is_empty()):
 		hideDialogueBox()
-		emit_signal("_dialogueCompleted")
-		i = 0
 		return
-	if "blink" in currentDialogue[i].keys():
-		gameManager.emit_signal("_performBlink")
-		i += 1
-		if "command" in currentDialogue[i].keys():
-			gameManager.emit_signal("_performCommand", currentDialogue[i]["command"])
-			i += 1
-		if(i == currentDialogue.size()):
+	var currentDialogue = allDialogues.pop_front()
+	commandList = []
+	while not "name" in currentDialogue.keys():
+		commandList.append(currentDialogue)
+		if allDialogues.is_empty():
+			commandList.append(currentDialogue)
+			sendCommands()
 			hideDialogueBox()
-			emit_signal("_dialogueCompleted")
-			i = 0
 			return
-		getNextLine()
-		return
-	showDialogue(currentDialogue[i]["name"], currentDialogue[i]["dialogue"])
-	isLineFinished = false
-	i += 1
+		currentDialogue = allDialogues.pop_front()
+
+	showDialogue(currentDialogue["name"], currentDialogue["dialogue"])
 
 #this function is called when the _showDialogue signal is emitted
-func showDialogue(_name: String, dialogue: String):
+func showFace(_name: String):
 	var face_texture = null
 	entityName.text = ""
 	#checks if the entity face sprite exists in the face_cache structure. If does then loads loads from the structure or else loads from the assets
@@ -115,25 +88,37 @@ func showDialogue(_name: String, dialogue: String):
 	face.texture = face_texture
 	#sets the enitity name
 	entityName.text = _name
-	#calls this function to show the dialogue letter by letter
-	printLetters(dialogue)
 
 #function to show the dialogue letter by letter by iterating through the dialogue string and adding each character one by one with a slight delay
-func printLetters(dialogue: String):
-	label.text = ""
+func showDialogue(_name: String, dialogue: String):
+	if not isSpaceClicked:
+		await _isSpaceClicked
+	isSpaceClicked = false
 	animationPlayer.stop()
+	label.text = ""
 	$MarginContainer/Polygon2D.visible = false
-	if !dialogueRunning:
-		return
+	sendCommands()
+	showFace(_name)
 	for ch in dialogue:
+		if isSpaceClicked:
+			label.text = dialogue
+			isSpaceClicked = false
+			break
 		label.text += ch
 		timer.start()
 		await timer.timeout
 	animationPlayer.play("bounce")
-	getNextLine()
+	emit_signal("_dialogueCompleted")
 
-
+func sendCommands():
+	while not commandList.is_empty():
+		var command = commandList.pop_front()
+		if "blink" in command.keys():
+			gameManager.emit_signal("_performBlink")
+		else:
+			gameManager.emit_signal("_performCommand", command["command"])
 func spaceClicked():
-	pass
+	isSpaceClicked = true
+
 func dialogueCompleted():
-	pass
+	getNextLine()

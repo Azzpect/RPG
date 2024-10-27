@@ -31,16 +31,20 @@ dialogueFileLoc = "res://dll/bed.gd"
 [node name="transitioner" parent="." instance=ExtResource("6_bpuwa")]
 unique_name_in_owner = true
 
-[node name="player" parent="." instance=ExtResource("2_5ji7f")]
-unique_name_in_owner = true
-position = Vector2(328, 267)
-
 [node name="playerRoom" parent="." instance=ExtResource("1_0h77q")]
 position = Vector2(-93, -79)
+
+[node name="player" parent="." instance=ExtResource("2_5ji7f")]
+unique_name_in_owner = true
+position = Vector2(325, 250)
 
 [node name="dialogueBox" parent="." instance=ExtResource("7_xb5d1")]
 unique_name_in_owner = true
 position = Vector2(-11, 233)
 scale = Vector2(0.5, 0.5)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(479, 270)
+zoom = Vector2(2, 2)
 
 [connection signal="body_entered" from="telepoter" to="gameManager" method="_on_telepoter_body_entered"]

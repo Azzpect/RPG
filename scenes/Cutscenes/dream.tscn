@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6nqtwjmhxyix"]
+
+[ext_resource type="Texture2D" uid="uid://vv75mdx1c7dj" path="res://Assets/cutscene/castleDemon.png" id="1_mjtdc"]
+[ext_resource type="Script" path="res://scripts/gameHandlers/dreamGameManager.gd" id="2_jb0aj"]
+[ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="3_mghej"]
+[ext_resource type="PackedScene" uid="uid://ctjfffivt3yfj" path="res://scenes/utility/playerRoom.tscn" id="4_kjlc3"]
+[ext_resource type="Texture2D" uid="uid://ipblul7kmjvx" path="res://Assets/characters/player/player.png" id="5_yigp1"]
+[ext_resource type="Texture2D" uid="uid://gy5wnaq1cllg" path="res://Assets/characters/mom_side.png" id="6_b5gjs"]
+[ext_resource type="PackedScene" uid="uid://qv0b2xe4skuv" path="res://scenes/utility/dialogueBox2.tscn" id="7_4eqix"]
+
+[node name="dream" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(959, 539)
+texture = ExtResource("1_mjtdc")
+
+[node name="gameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_jb0aj")
+dialogueFileLoc = "res://dll/dream.gd"
+
+[node name="transitioner" parent="." instance=ExtResource("3_mghej")]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="playerRoom" parent="." instance=ExtResource("4_kjlc3")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(378, 200)
+
+[node name="playerSprite" type="Sprite2D" parent="playerRoom"]
+position = Vector2(440, 425)
+texture = ExtResource("5_yigp1")
+
+[node name="mother" type="Sprite2D" parent="playerRoom"]
+unique_name_in_owner = true
+position = Vector2(486, 418)
+texture = ExtResource("6_b5gjs")
+flip_h = true
+
+[node name="camera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(959, 539)
+
+[node name="dialogueBox" parent="." instance=ExtResource("7_4eqix")]
+unique_name_in_owner = true

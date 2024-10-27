@@ -1,6 +1,5 @@
 @export var sceneDialogues = {
-    "quest1": [
-        "
+    "1": "
             *sid stands at the entrance of the hall
             Sid: Look who's up here to have a little family time today.
             Father: It's not like I had a choice.
@@ -52,7 +51,6 @@
             *mother comes back with food and family eats
             *after lunch dexter goes back to his room
         "
-    ],
     # "father": [
     #     "
     #         Father: Honey! I Have some important work today.
