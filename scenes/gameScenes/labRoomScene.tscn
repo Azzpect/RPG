@@ -28,5 +28,10 @@ unique_name_in_owner = true
 position = Vector2(502, 366)
 
 [node name="ui" parent="." instance=ExtResource("6_egdc5")]
+offset_left = 175.0
+offset_top = 110.0
+offset_right = 175.0
+offset_bottom = 110.0
+scale = Vector2(0.4, 0.4)
 
 [connection signal="body_entered" from="telepoter" to="gameManager" method="_on_telepoter_body_entered"]

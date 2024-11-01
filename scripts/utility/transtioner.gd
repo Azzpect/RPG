@@ -27,7 +27,3 @@ func endScene():
 func blink():
 	animationPlayer.play("blink")
 
-#this function is called when any animation is finished playing. It checks if the finished animation is the scene_end animation or not. If it was that then it emits _sceneEnded signal of the game manager node
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "scene_end":
-		gameManager.emit_signal("_sceneEnded")

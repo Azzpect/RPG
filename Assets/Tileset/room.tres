@@ -54,11 +54,11 @@ texture = ExtResource("4_f13m2")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-34.5, -17.5, 29.5, -20.5, 29.5, 18.5, -34.25, 17.75)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v86nn"]
+resource_name = "bed"
 texture = ExtResource("5_4tdru")
 0:0/size_in_atlas = Vector2i(5, 5)
 0:0/0 = 0
 0:0/0/y_sort_origin = -12
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.75, -14.25, 21.75, -14.25, 22.2739, 33.5876, -18.0312, 34.2947)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cdycd"]
 texture = ExtResource("6_gdwdq")

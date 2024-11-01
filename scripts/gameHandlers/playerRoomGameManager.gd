@@ -2,7 +2,6 @@ extends GameManager
 
 func _ready() -> void:
 	initialize()
-	assignQuest("quest1")
 
 
 func _on_telepoter_body_entered(body: Node2D) -> void:
