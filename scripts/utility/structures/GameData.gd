@@ -69,7 +69,8 @@ static func save(stateData: Dictionary):
 	var data = GameData.convertToDict()
 	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
 	# var stringData = convertToBin(JSON.stringify(data))
-	file.store_string(JSON.stringify(data))
+	data = prettify(data)
+	file.store_string(data)
 	file.close()
 
 
@@ -113,7 +114,8 @@ static func assignQuest():
 
 static func saveQuest():
 	var file = FileAccess.open("res://dll/allQuests.json", FileAccess.WRITE)
-	file.store_string(JSON.stringify(allQuests))
+	var data = prettify(allQuests)
+	file.store_string(data)
 
 static func reset():
 	GameData.save({"scene": "", "player": CharacterData.new(Vector2.ZERO, Vector2.ZERO).convertToDict(), "quest": ""})
@@ -122,3 +124,32 @@ static func reset():
 		allQuests[quest]["status"] = 0
 	saveQuest()
 	
+static func prettify(data: Dictionary):
+	var string = JSON.stringify(data)
+	var pretty = ""
+	var level = 0
+
+	var getIndent = func(level):
+		var indent = ""
+		for i in level:
+			indent += "\t"
+		return indent
+
+	for ch in string:
+		if ch == "{":
+			level += 1
+			pretty += "{\n" + getIndent.call(level)
+		elif ch == "[":
+			level += 1
+			pretty += "[\n" + getIndent.call(level)
+		elif ch == "}":
+			level -= 1
+			pretty += "\n" + getIndent.call(level) + "}"
+		elif ch == "]":
+			level -= 1
+			pretty += "\n" + getIndent.call(level) + "]"
+		elif ch == ",":
+			pretty += ",\n" + getIndent.call(level)
+		else:
+			pretty += ch
+	return pretty
