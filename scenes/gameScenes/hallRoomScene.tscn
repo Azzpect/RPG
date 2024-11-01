@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="4_r0hmn"]
 [ext_resource type="PackedScene" uid="uid://b0k0i76iq8ie5" path="res://scenes/utility/character/player.tscn" id="5_xuice"]
 [ext_resource type="PackedScene" uid="uid://dxa5h0fxscjqa" path="res://scenes/utility/ui.tscn" id="6_lyo4s"]
-[ext_resource type="Texture2D" uid="uid://cv3t36duy728y" path="res://Assets/characters/father.png" id="7_504al"]
-[ext_resource type="Texture2D" uid="uid://bmdntwyjrku8a" path="res://Assets/characters/mother_front.png" id="8_ii8pm"]
+[ext_resource type="Texture2D" uid="uid://cyddyobr7pht1" path="res://Assets/characters/father.png" id="7_504al"]
+[ext_resource type="Texture2D" uid="uid://1v2jwg53aamp" path="res://Assets/characters/mother_front.png" id="8_ii8pm"]
 [ext_resource type="Script" path="res://scripts/utility/NPC.gd" id="8_iucmd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fkyx"]
@@ -52,41 +52,36 @@ offset_right = 65.0
 offset_bottom = 130.0
 scale = Vector2(0.5, 0.5)
 
-[node name="npcHolder" type="Node2D" parent="."]
+[node name="father" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
 y_sort_enabled = true
-position = Vector2(232, 460)
-
-[node name="father" type="CharacterBody2D" parent="npcHolder"]
-unique_name_in_owner = true
-y_sort_enabled = true
-position = Vector2(31, 29)
+position = Vector2(263, 489)
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("8_iucmd")
 questList = ["quest1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="npcHolder/father"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="father"]
 shape = SubResource("RectangleShape2D_8fkyx")
 
-[node name="Sprite2D" type="Sprite2D" parent="npcHolder/father"]
+[node name="Sprite2D" type="Sprite2D" parent="father"]
 position = Vector2(-3, 3)
 texture = ExtResource("7_504al")
 
-[node name="mother" type="CharacterBody2D" parent="npcHolder"]
+[node name="mother" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
 y_sort_enabled = true
-position = Vector2(-1, 27)
+position = Vector2(231, 488)
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("8_iucmd")
 questList = ["quest1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="npcHolder/mother"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mother"]
 position = Vector2(-0.75, -5)
 shape = SubResource("RectangleShape2D_7twk1")
 
-[node name="Sprite2D" type="Sprite2D" parent="npcHolder/mother"]
+[node name="Sprite2D" type="Sprite2D" parent="mother"]
 texture = ExtResource("8_ii8pm")
 
 [node name="gameManager" type="Node" parent="."]

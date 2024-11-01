@@ -23,7 +23,7 @@
             /get player.0
             /set player.0 disabled true
             /get mother
-            /set mother position -10,-115
+            /set mother position 210,345
             /get mother.1
             /set mother.1 texture load(res://Assets/characters/mother_back.png)
             /get mother.0
@@ -45,7 +45,7 @@
             [::]
             /set player.0 disabled false
             /set player speed 70
-            /set mother position -1,27
+            /set mother position 231,488
             /set mother.1 texture load(res://Assets/characters/mother_front.png)
             /set player position 230,460
             *mother comes back with food and family eats

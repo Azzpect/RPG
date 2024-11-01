@@ -1,1 +1,17 @@
-{"1":{"description":"Talk to father in hall room (Press F to interact with the npc","npc":"father","status":2},"2":{"description":"Go to your room and rest on the bed.","npc":"bed","status":2},"3":{"description":"Go to father's lab and play the game","npc":"controller","status":1}}
+{
+	"1":{
+		"description":"Talk to father in hall room (Press F to interact with the npc",
+		"npc":"father",
+		"status":2
+	},
+	"2":{
+		"description":"Go to your room and rest on the bed.",
+		"npc":"bed",
+		"status":2
+	},
+	"3":{
+		"description":"Go to father's lab and play the game",
+		"npc":"controller",
+		"status":1
+	}
+}

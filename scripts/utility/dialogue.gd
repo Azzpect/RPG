@@ -91,8 +91,6 @@ func showFace(_name: String):
 
 #function to show the dialogue letter by letter by iterating through the dialogue string and adding each character one by one with a slight delay
 func showDialogue(_name: String, dialogue: String):
-	if not isSpaceClicked:
-		await _isSpaceClicked
 	isSpaceClicked = false
 	animationPlayer.stop()
 	label.text = ""
@@ -108,6 +106,8 @@ func showDialogue(_name: String, dialogue: String):
 		timer.start()
 		await timer.timeout
 	animationPlayer.play("bounce")
+	if not isSpaceClicked:
+		await _isSpaceClicked
 	emit_signal("_dialogueCompleted")
 
 func sendCommands():
