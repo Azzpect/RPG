@@ -1,14 +1,14 @@
 [gd_resource type="TileSet" load_steps=19 format=3 uid="uid://cgy2h0etujai1"]
 
-[ext_resource type="Texture2D" uid="uid://brynmir5qqgjy" path="res://Assets/Lab/labTileSet.png" id="1_pikdr"]
-[ext_resource type="Texture2D" uid="uid://bf0g7etnshpm7" path="res://Assets/Lab/compDesk.png" id="2_d1fb3"]
-[ext_resource type="Texture2D" uid="uid://b206u0xvk07nn" path="res://Assets/Lab/LabShelve.png" id="3_wnlcq"]
-[ext_resource type="Texture2D" uid="uid://dhqag58nxffo0" path="res://Assets/Lab/labShelve2.png" id="5_ec4is"]
-[ext_resource type="Texture2D" uid="uid://donvipsr3v35s" path="res://Assets/Lab/gameChair.png" id="6_si78r"]
-[ext_resource type="Texture2D" uid="uid://b5g3lvwnwdacr" path="res://Assets/Lab/sideSofa.png" id="7_iul3p"]
-[ext_resource type="Texture2D" uid="uid://bcuhma548feu7" path="res://Assets/Lab/sideSofaPart2.png" id="8_xl7id"]
-[ext_resource type="Texture2D" uid="uid://buf3noopkr3yj" path="res://Assets/Lab/consoleTable.png" id="9_h1px3"]
-[ext_resource type="Texture2D" uid="uid://b42kaigi8oqnu" path="res://Assets/Lab/GameTv.png" id="10_bnsif"]
+[ext_resource type="Texture2D" uid="uid://dwg8trkfd6pyu" path="res://Assets/Lab/labTileSet.png" id="1_pikdr"]
+[ext_resource type="Texture2D" uid="uid://f3wxvkyf5dmg" path="res://Assets/Lab/compDesk.png" id="2_d1fb3"]
+[ext_resource type="Texture2D" uid="uid://1hoo8hh0tfth" path="res://Assets/Lab/LabShelve.png" id="3_wnlcq"]
+[ext_resource type="Texture2D" uid="uid://dfuq4mh5r2kh8" path="res://Assets/Lab/labShelve2.png" id="5_ec4is"]
+[ext_resource type="Texture2D" uid="uid://b3w35feunmao4" path="res://Assets/Lab/gameChair.png" id="6_si78r"]
+[ext_resource type="Texture2D" uid="uid://b0o7l8gsip23a" path="res://Assets/Lab/sideSofa.png" id="7_iul3p"]
+[ext_resource type="Texture2D" uid="uid://clg0xhosk2kcl" path="res://Assets/Lab/sideSofaPart2.png" id="8_xl7id"]
+[ext_resource type="Texture2D" uid="uid://bb7mmn03yvk56" path="res://Assets/Lab/consoleTable.png" id="9_h1px3"]
+[ext_resource type="Texture2D" uid="uid://l8org57l14ax" path="res://Assets/Lab/GameTv.png" id="10_bnsif"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_loemd"]
 texture = ExtResource("1_pikdr")

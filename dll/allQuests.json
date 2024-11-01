@@ -11,7 +11,12 @@
 	},
 	"3":{
 		"description":"Go to father's lab and play the game",
-		"npc":"controller",
+		"npc":"console",
+		"status":2
+	},
+	"4":{
+		"description":"Game Completed",
+		"npc":"none",
 		"status":1
 	}
 }

@@ -1,7 +1,5 @@
 @export var sceneDialogues = {
-	"game": "
-        /get background
-        /set background texture load(res://Assets/cutscene/gameScene1.png)
+	"3": "
         Sid: Let's see
     "
 }

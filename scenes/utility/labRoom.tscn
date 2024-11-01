@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=4 uid="uid://w70ssnwe5sl1"]
 
 [ext_resource type="TileSet" uid="uid://cgy2h0etujai1" path="res://Assets/Tileset/labTile.tres" id="1_nolf2"]
-[ext_resource type="Texture2D" uid="uid://di4gi851isyqt" path="res://Assets/Room/door.png" id="3_o47ga"]
-[ext_resource type="Texture2D" uid="uid://caur1h1ld8w0f" path="res://Assets/Lab/consoleTable.png" id="3_o064n"]
+[ext_resource type="Texture2D" uid="uid://dh727joyngkwd" path="res://Assets/Room/door.png" id="3_o47ga"]
+[ext_resource type="Texture2D" uid="uid://bb7mmn03yvk56" path="res://Assets/Lab/consoleTable.png" id="3_o064n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_001ch"]
 size = Vector2(22, 42)

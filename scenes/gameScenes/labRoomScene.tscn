@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2pehf3brm46i"]
+[gd_scene load_steps=8 format=3 uid="uid://c2pehf3brm46i"]
 
 [ext_resource type="PackedScene" uid="uid://w70ssnwe5sl1" path="res://scenes/utility/labRoom.tscn" id="1_7tb7m"]
 [ext_resource type="Script" path="res://scripts/gameHandlers/labRoomGameManager.gd" id="2_62lvk"]
@@ -6,15 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://b0k0i76iq8ie5" path="res://scenes/utility/character/player.tscn" id="3_ctbts"]
 [ext_resource type="PackedScene" uid="uid://co2475gp7n187" path="res://scenes/utility/teleporter.tscn" id="4_uin3r"]
 [ext_resource type="PackedScene" uid="uid://dxa5h0fxscjqa" path="res://scenes/utility/ui.tscn" id="6_egdc5"]
+[ext_resource type="PackedScene" uid="uid://qv0b2xe4skuv" path="res://scenes/utility/dialogueBox2.tscn" id="7_570au"]
 
 [node name="labRoomScene" type="Node2D"]
 y_sort_enabled = true
 
 [node name="labRoom" parent="." instance=ExtResource("1_7tb7m")]
 
-[node name="gameManager" type="Node" parent="."]
+[node name="dialogueBox" parent="." instance=ExtResource("7_570au")]
 unique_name_in_owner = true
-script = ExtResource("2_62lvk")
+position = Vector2(164, 285)
+scale = Vector2(0.4, 0.4)
 
 [node name="telepoter" parent="." instance=ExtResource("4_uin3r")]
 position = Vector2(448, 311)
@@ -33,5 +35,10 @@ offset_top = 110.0
 offset_right = 175.0
 offset_bottom = 110.0
 scale = Vector2(0.4, 0.4)
+
+[node name="gameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_62lvk")
+dialogueFileLoc = "res://dll/game.gd"
 
 [connection signal="body_entered" from="telepoter" to="gameManager" method="_on_telepoter_body_entered"]
