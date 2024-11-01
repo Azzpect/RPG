@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=4 uid="uid://w70ssnwe5sl1"]
+[gd_scene load_steps=5 format=4 uid="uid://w70ssnwe5sl1"]
 
 [ext_resource type="TileSet" uid="uid://cgy2h0etujai1" path="res://Assets/Tileset/labTile.tres" id="1_nolf2"]
 [ext_resource type="Texture2D" uid="uid://di4gi851isyqt" path="res://Assets/Room/door.png" id="3_o47ga"]
+[ext_resource type="Texture2D" uid="uid://caur1h1ld8w0f" path="res://Assets/Lab/consoleTable.png" id="3_o064n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_001ch"]
+size = Vector2(22, 42)
 
 [node name="labRoom" type="Node2D"]
 y_sort_enabled = true
@@ -21,7 +25,7 @@ tile_set = ExtResource("1_nolf2")
 
 [node name="furniture" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAZABgABgAAAAAAAAAaABgABwABAAAAAAAoABIABAAAAAAAAAAcABgACAAAAAAAAAAeABgACgAAAAAAAAAjABIAAQAAAAIAAAAjABMABQABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAZABgABgAAAAAAAAAaABgABwABAAAAAAAoABIABAAAAAAAAAAeABgACgAAAAAAAAAjABIAAQAAAAIAAAAjABMABQABAAAAAAA=")
 tile_set = ExtResource("1_nolf2")
 
 [node name="teleporter" type="Sprite2D" parent="."]
@@ -31,3 +35,14 @@ texture = ExtResource("3_o47ga")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(563, 326)
 zoom = Vector2(2.5, 2.5)
+
+[node name="console" type="StaticBody2D" parent="."]
+position = Vector2(455, 391)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="console"]
+shape = SubResource("RectangleShape2D_001ch")
+
+[node name="Sprite2D" type="Sprite2D" parent="console"]
+texture = ExtResource("3_o064n")
