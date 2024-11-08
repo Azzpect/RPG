@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5p3g71dnxuw5"]
+
+[ext_resource type="PackedScene" uid="uid://8ou668g3fwqp" path="res://scenes/utility/forest.tscn" id="1_182dh"]
+[ext_resource type="PackedScene" uid="uid://b0k0i76iq8ie5" path="res://scenes/utility/character/player.tscn" id="2_u3nht"]
+[ext_resource type="PackedScene" uid="uid://qv0b2xe4skuv" path="res://scenes/utility/dialogueBox2.tscn" id="3_bki00"]
+[ext_resource type="Script" path="res://scripts/gameHandlers/forestGameSceneManager.gd" id="4_52wcn"]
+[ext_resource type="PackedScene" uid="uid://crajuy8r0k17p" path="res://scenes/utility/transtioner.tscn" id="4_jdr5a"]
+[ext_resource type="PackedScene" uid="uid://dxa5h0fxscjqa" path="res://scenes/utility/ui.tscn" id="6_tc7x6"]
+
+[node name="forestGameScene" type="Node2D"]
+
+[node name="forest" parent="." instance=ExtResource("1_182dh")]
+
+[node name="dialogueBox" parent="." instance=ExtResource("3_bki00")]
+unique_name_in_owner = true
+
+[node name="transitioner" parent="." instance=ExtResource("4_jdr5a")]
+unique_name_in_owner = true
+
+[node name="gameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_52wcn")
+
+[node name="player" parent="." instance=ExtResource("2_u3nht")]
+unique_name_in_owner = true
+position = Vector2(505, 511)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(2.5, 2.5)
+
+[node name="ui" parent="player" instance=ExtResource("6_tc7x6")]
+unique_name_in_owner = true
+offset_left = -383.0
+offset_top = -219.0
+offset_right = -383.0
+offset_bottom = -219.0
+scale = Vector2(0.4, 0.4)

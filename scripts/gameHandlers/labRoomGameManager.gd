@@ -3,6 +3,10 @@ extends GameManager
 
 func _ready() -> void:
 	initialize()
+	await _endConversation
+	transitioner.emit_signal("_endScene")
+	nextScene = "res://scenes/gameScenes/forestGameScene.tscn"
+	teleport(nextScene, Vector2(505, 510))
 	
 
 

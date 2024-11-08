@@ -11,6 +11,12 @@
 [node name="labRoomScene" type="Node2D"]
 y_sort_enabled = true
 
+[node name="background" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+z_index = 5
+position = Vector2(562, 328)
+scale = Vector2(0.395833, 0.396296)
+
 [node name="labRoom" parent="." instance=ExtResource("1_7tb7m")]
 
 [node name="dialogueBox" parent="." instance=ExtResource("7_570au")]
